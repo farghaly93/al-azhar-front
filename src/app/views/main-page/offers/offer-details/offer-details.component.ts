@@ -44,11 +44,9 @@ export class OfferDetailsComponent implements OnInit {
 
   shareOnFacebook() {
 
-    // this.socialSharing.shareViaFacebook("أرض للمشاركة", "https://gblobscdn.gitbook.com/assets%2F-LsQWILyBp_9nWmIJ7TG%2F-LucCxlvO0nTnF_7lgmG%2F-LucDH0Ixg83OQ_TzVPw%2Fassets_-La-kqVz2Uq1Ka0VUWZT_-LbE-B4tw3obp2iH7oJG_-LbELIjnC22CB4k0c7Fw_Screen%20Shot%202019-03-30%20at%209.35.14%20PM.png?alt=media&token=03cfa619-8550-4852-ad01-66e8b2d30b05", "http://localhost:4200/main-page/offers/offer-details/1").then((res) => {
-    //   console.log(res);
-    // }).catch((e) => {
-    //   // Error!
-    // });
+    let url =  "https://www.facebook.com/dialog/share?app_id=123456789&amp;href="+location.href+"&amp;picture="+"https://khamsat.hsoubcdn.com/images/services/1468846/ed33090fd9a2787c9b4ebcb47c6fb7f5.jpg";
+        let newwindow=window.open(url,'name','height=500,width=520,top=200,left=300,resizable');
+        newwindow?.focus()
   }
 
 }
