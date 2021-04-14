@@ -33,6 +33,7 @@ import { UpdateModeratorDataComponent } from './views/admin/update-moderator-dat
 import { AdminHomeComponent } from './views/admin/admin-home/admin-home.component';
 import { MenuPageComponent } from './views/menu-page/menu-page.component';
 import { NgxSocialShareModule } from 'ngx-social-share';
+import { FacebookModule } from 'ngx-facebook';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { NgxSocialShareModule } from 'ngx-social-share';
     SpinnerComponent,
     UpdateModeratorDataComponent,
     AdminHomeComponent,
-    MenuPageComponent
+    MenuPageComponent,
   ],
   imports: [
     BrowserModule,
@@ -70,7 +71,7 @@ import { NgxSocialShareModule } from 'ngx-social-share';
     ReactiveFormsModule,
     MatSnackBarModule,
     BrowserAnimationsModule,
-    NgxSocialShareModule,
+    FacebookModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDIYDBgOQD5G6LU-7XrgaOmDgfWIl4vl6g'
     })

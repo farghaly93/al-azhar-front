@@ -3,8 +3,9 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Offer, OfferInterface } from '../offer.model';
 import { OffersServices } from '../../../../shared/offers.serive';
+import { GlobalServices } from 'src/app/shared/global.service';
 // import { SocialSharing } from '@ionic-native/social-sharing/ngx';
-
+import { FacebookService, InitParams, UIParams, UIResponse } from 'ngx-facebook';
 
 
 
@@ -18,7 +19,17 @@ export class OfferDetailsComponent implements OnInit {
     // private socialSharing: SocialSharing,
     private route: ActivatedRoute,
     private offerServices: OffersServices,
-    private http: HttpClient) { }
+    private globalServices: GlobalServices,
+    private fb: FacebookService,
+    private http: HttpClient) {
+      const initParams: InitParams = {
+        appId: '1234566778',
+        xfbml: true,
+        version: 'v2.8'
+      };
+
+      fb.init(initParams);
+     }
 
   offerDetails!: OfferInterface;
   descriptions: string[] = [];
@@ -44,9 +55,19 @@ export class OfferDetailsComponent implements OnInit {
 
   shareOnFacebook() {
 
-    let url =  "https://www.facebook.com/dialog/share?app_id=123456789&amp;href="+location.href+"&amp;picture="+"https://khamsat.hsoubcdn.com/images/services/1468846/ed33090fd9a2787c9b4ebcb47c6fb7f5.jpg";
-        let newwindow=window.open(url,'name','height=500,width=520,top=200,left=300,resizable');
-        newwindow?.focus()
-  }
+    const params: UIParams = {
+      href: 'https://github.com/zyra/ngx-facebook',
+      method: 'share'
+    };
 
+    this.fb.ui(params)
+      .then((res: UIResponse) => console.log(res))
+      .catch((e: any) => console.error(e));
+
+    // let url = 'http://www.facebook.com/sharer.php?u=http://192.168.1.6:4200/';
+    //     let newwindow=window.open(url,'name','height=500,width=520,top=200,left=300,resizable');
+    //     newwindow?.focus();
+    // }
+
+  }
 }

@@ -29,7 +29,17 @@ export class UpdateModeratorDataComponent implements OnInit {
   whatsapp = "";
 
   ngOnInit(): void {
-    this.globalServices.getInfo();
+    const info = this.globalServices.getInfo();
+    if(info) {
+      this.title = info.title;
+      this.desc = info.desc;
+      this.facebook = info.facebook;
+      this.phone = info.phone;
+      this.address = info.address;
+      this.email = info.email;
+      this.whatsapp = info.whatsapp;
+      this.features = info.features.split("/");
+    }
     this.globalServices.infoReady.subscribe((info: Info | any) => {
       if(info) {
         this.title = info.title;
