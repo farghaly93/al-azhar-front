@@ -1,0 +1,35 @@
+<div (click)="gotoOfferDetailsPage(offer.id)" class="cardd p-0 mb-3">
+  <div class="row p-0 p-md-2">
+    <div class="col-md-6 col-lg-6 align-self-stretch">
+      <img src="../../../assets/img/buildings.jpg" alt="buildings" class="img-fluid">
+    </div>
+    <div class="col-md-12 p-0 col-lg-6">
+      <div class="content p-1 p-md-3">
+        <h5>{{offer.title}}</h5>
+        <p class="date">{{offer.updated_at}}</p>
+        <p class="text-muted">{{offer.area}} متر مربع</p>
+        <p class="spec">{{offer.price}} جنيه للمتر</p>
+        <p class="spec">{{offer.site}}</p>
+        <p class="spec text-truncate">{{offer.desc}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="row g-3" dir="rtl">
+  <div class="title col-md-12">
+    {{offer.title}}
+    <div class="date">{{offer.updated_at}}</div>
+    <hr>
+  </div>
+  <div class="spec col-md-6">{{offer.activity}}</div>
+  <div class="spec col-md-6">{{offer.type}}</div>
+  <div class="spec col-md-6">{{offer.area}} متر مربع</div>
+  <div class="spec col-md-6">{{offer.price}} جنيه للمتر</div>
+  <div class="spec col-md-6">{{offer.site}}</div>
+  <div class="spec col-md-6">{{offer.negotiable? 'قابل للتفاوض': 'غير قابل للتفاوض'}}</div>
+  <div class="spec col-md-6">{{offer.desc}}</div>
+  <div class="spec col-md-6">{{offer.lat}}</div>
+  <div class="spec col-md-6">{{offer.lng}}</div>
+</div> -->

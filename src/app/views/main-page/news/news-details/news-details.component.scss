@@ -1,0 +1,27 @@
+.post {
+  font-size: large;
+  font-weight: 500;
+  font-family: 'Cairo', sans-serif;
+  direction: rtl;
+
+  @media(max-width: 570px) {
+    font-size: medium;
+  }
+}
+
+h2 {
+  font-family: 'Cairo', sans-serif;
+
+  @media(max-width: 700px) {
+    font-size: 22px;
+  }
+}
+
+h3 {
+  font-family: 'Cairo', sans-serif;
+  color: rgb(28, 65, 33);
+
+  @media(max-width: 700px) {
+    font-size: 17px;
+  }
+}

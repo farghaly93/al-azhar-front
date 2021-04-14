@@ -1,0 +1,105 @@
+.page {
+  width: 100vw;
+}
+
+.filters {
+  // padding-top: 30px;
+  background:rgba(229, 230, 231, 0.658);
+  font-family: "Cairo";
+  border-right: grey 1px solid;
+
+  h4 {
+    color:rgb(41, 38, 38);
+  }
+
+  .filter {
+    margin-top: 50px;
+    h5, hr {
+      text-align: center;
+      color:rgb(61, 59, 59);
+      font-size: 14px;
+    }
+
+    label {
+      span {
+        color: rgb(49, 49, 88);
+        font-weight: 900;
+      }
+    }
+
+    .property {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .slider {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+
+      span {
+        color:rgba(61, 59, 59, 0.74);
+      }
+    }
+  }
+  transition: all .4s ease-in-out;
+
+  &.open {
+    transform: translateY(0);
+  }
+
+}
+
+.filters-dropdown {
+  z-index: 2000;
+  cursor: pointer;
+  display: none;
+  i {
+    padding: 3px;
+    color: rgb(64, 97, 158);
+    font-size: 30px;
+  }
+}
+
+@media(max-width: 800px) {
+  .filters-dropdown {
+    display: flex;
+    position: fixed;
+    top: 17%;
+    left: 5%;
+    width: 100%;
+  }
+
+  .filters {
+    z-index: 1000;
+    padding-top: 30%;
+    position: fixed;
+    overflow-y: auto;
+    overflow-x: auto;
+    top: 20%;
+    top: 0;
+    width: 100%;
+    height: 100vh;
+    background: #fff;
+    transform: translateY(-100%);
+  }
+}
+
+@media(max-width: 300px) {
+  .filters {
+    padding-top: 50%;
+  }
+}
+
+.pagination {
+  margin-top: 20px;
+  font-size: 1.6rem;
+}
+
+.offers-content {
+  display: flex;
+  flex-direction: column;
+  align-items: space-around;
+}

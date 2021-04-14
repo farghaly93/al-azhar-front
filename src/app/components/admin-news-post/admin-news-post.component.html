@@ -1,0 +1,22 @@
+
+<div class=" cardd shadow-lg bg-light p-1 p-md-4 bg-gradient">
+  <div class="row">
+    <div class="col-md-3">
+      <img style="height: 230px; width:100%;" [src]="post.image" class="img-fluid" alt="">
+    </div>
+    <div class="col-md-9">
+      <div class="content container d-flex flex-column justify-content-between overflow-hidden">
+        <h4 class="text-muted">{{post.title}}</h4>
+        <span class="h6 text-muted">{{post.updated_at}}</span>
+        <p class="post text-truncate">
+          {{post.body}}
+        </p>
+        <hr>
+        <div class="btns row g-3">
+          <button (click)="edit()" class="btn btn-success col-md-4">Edit</button>
+          <button (click)="delete()" class="btn btn-danger col-md-4">delete</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

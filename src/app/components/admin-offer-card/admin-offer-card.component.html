@@ -1,0 +1,27 @@
+<div class="offer md-3 p-2 shadow-lg">
+  <div class="row g-3" dir="rtl">
+    <div class="title col-md-12">
+      {{offer.title}}
+      <div class="date">{{offer.updated_at}}</div>
+      <hr>
+    </div>
+    <div class="spec col-md-6">{{offer.activity}}</div>
+    <div class="spec col-md-6">{{offer.type}}</div>
+    <div class="spec col-md-6">{{offer.area}} متر مربع</div>
+    <div class="spec col-md-6">{{offer.price}} جنيه للمتر</div>
+    <div class="spec col-md-6">{{offer.site}}</div>
+    <div class="spec col-md-6">{{offer.negotiable? 'قابل للتفاوض': 'غير قابل للتفاوض'}}</div>
+    <div class="spec col-md-6">{{offer.desc}}</div>
+    <div class="spec col-md-6">{{offer.lat}}</div>
+    <div class="spec col-md-6">{{offer.lng}}</div>
+  </div>
+  <hr>
+  <div class="row justify-content-start" dir="rtl">
+    <div class="col-md-4 col-12">
+      <div class="row g-2">
+        <div (click)="edit()" class="col-md-6"><button class="btn btn-success w-100">تعديل</button></div>
+        <div (click)="deleteOffer()" class="col-md-6"><button class="btn btn-danger w-100">مسح</button></div>
+      </div>
+    </div>
+  </div>
+</div>

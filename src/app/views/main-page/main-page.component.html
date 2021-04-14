@@ -1,0 +1,14 @@
+<div class="background"></div>
+<div class="main-page p-0">
+  <div (click)="sidebar = false" [ngClass]="[sidebar?'show':'hide']" class="overlay"></div>
+  <div class="containerr p-0">
+      <!-- <div class="row bg-dark w-100 p-0"> -->
+          <div class="p-0 sidebar" [ngClass]="[sidebar?'show': 'hide']">
+              <app-sidebar [links]="links"></app-sidebar>
+          </div>
+          <div class="content p-0" style="">
+              <router-outlet></router-outlet>
+          </div>
+      <!-- </div> -->
+  </div>
+</div>

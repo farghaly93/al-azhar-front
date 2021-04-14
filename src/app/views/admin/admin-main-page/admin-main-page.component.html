@@ -1,0 +1,32 @@
+<nav class="bg-gradient">
+  <div class="right row justify-content-start align-items-center">
+    <i (click)="sidebar=true" class="fa fa-bars col-1"></i>
+    <h4 class="col-md-3 col-11 text-center">Admin panel</h4>
+  </div>
+  <div class="left">
+    <div class="links">
+      <a>Admin</a>
+      <a>login</a>
+      <a (click)="logout()">Logout</a>
+    </div>
+    <div class="menu">
+      <a id="menu" onclick="document.getElementsByClassName('links')[0].classList.toggle('open')"><i class="fa fa-bars"></i></a>
+    </div>
+  </div>
+</nav>
+
+<div class="background"></div>
+<div class="main-page">
+  <div (click)="sidebar = false" [ngClass]="[sidebar?'show':'hide']" class="overlay"></div>
+  <div class="containerr">
+      <div class="row w-100 p-0">
+          <div class="col-md-2 col-sm-4 p-0 sidebar" [ngClass]="[sidebar?'show': 'hide']">
+              <app-sidebar [links]="links"></app-sidebar>
+          </div>
+          <div class="col-12 w-100 p-0" style="">
+              <!-- <h1 class="text-center display-3">MAIN PAGE</h1> -->
+              <router-outlet></router-outlet>
+          </div>
+      </div>
+  </div>
+</div>

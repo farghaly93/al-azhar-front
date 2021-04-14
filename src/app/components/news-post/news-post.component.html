@@ -1,0 +1,19 @@
+
+<div class="news-card">
+  <div class="img">
+    <img [src]="post.image" alt="news-img">
+  </div>
+  <div class="padge"></div>
+  <div class="details">
+    <div class="info">
+      <h5>{{post.title}}</h5>
+      <p>{{post.updated_at.split("T")[0]}}</p>
+      <p class="text-uncate">{{post.body.split(" ").splice(0, 20).join(" ") + '...'}}</p>
+    </div>
+    <div class="btn">
+      <div style="flex: 2"></div>
+      <button (click)="seeMore()" class="btn bg-gradient">شاهد الخبر</button>
+      <div style="flex: 2"></div>
+    </div>
+  </div>
+</div>

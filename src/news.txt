@@ -1,0 +1,40 @@
+import { Component, Input, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-news-details',
+  templateUrl: './news-details.component.html',
+  styleUrls: ['./news-details.component.scss']
+})
+export class NewsDetailsComponent implements OnInit {
+
+  constructor() { }
+
+  @Input() post!: string;
+  part1 = "";
+  part2 = "";
+  imagePath = '';
+
+  ngOnInit(): void {
+    const fillPostText = () => {
+      const postStringArray = this.post.split("");
+      const postLength = postStringArray.length;
+      this.part1 = postStringArray.slice(0, postLength/3).join("");
+      this.part2 = postStringArray.slice(postLength*(2/3), postLength).join("");
+    }
+    this.readFile(fillPostText);
+  }
+
+  readFile(cb: Function) {
+    const http = new XMLHttpRequest();
+    http.open('get', 'news.txt', true);
+    http.onreadystatechange = () => {
+      if(http.readyState == 4) {
+        if(http.status == 200) {
+          cb(http.responseText);
+        }
+      }
+    }
+    http.send();
+  }
+
+}

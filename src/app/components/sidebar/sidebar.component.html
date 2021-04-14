@@ -1,0 +1,18 @@
+<div class="container bg-gradient pt-2">
+  <div class="row align-items-center justify-content-between">
+    <h2 class="col-12 text-center">
+      القائمة
+      <hr>
+    </h2>
+  </div>
+  <div class="row p-0">
+    <div class="col-md-12 p-0">
+      <ul class="d-flex flex-column g-3 justify-content-start align-items-center overflow-hidden" >
+        <li *ngFor="let link of links"><span><i [class]="link.icon"></i></span><a [routerLink]="link.path">{{link.name}}</a></li>
+        <!-- <li><span><i class="fa fa-bars"></i></span><a routerLink="/main-page/photos">photos</a></li>
+        <li><span><i class="fa fa-wifi"></i></span><a routerLink="/main-page/offers">Offers</a></li> -->
+      </ul>
+    </div>
+  </div>
+</div>
+~

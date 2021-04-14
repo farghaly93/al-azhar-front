@@ -1,0 +1,28 @@
+<div class="content p-0">
+  <h1 class="display-3 text-muted text-center">أخر الأخبار</h1>
+  <hr>
+
+  <div class="row w-100 g-2 justify-content-center p-2 m-3">
+    <div class="col-md-6">
+      <div class="input-group">
+        <span class="input-group-text"><i class="fa fa-search"></i></span>
+        <input (keyup)="search($event)" type="text" class="form-control">
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="input-group">
+        <span class="input-group-text">Date</span>
+        <input (change)="filterByDate($event)" type="date" class="form-control">
+      </div>
+    </div>
+  </div>
+  <div *ngIf="loading" class="container text-center p-5">
+    <app-spinner></app-spinner>
+  </div>
+  <div class="row w-100 justify-content-center p-0 mx-auto">
+      <div *ngFor="let post of posts; let i=index" class="col-md-10 col-12 mb-3">
+          <app-news-post *ngIf="side=='user'" [post]="post"></app-news-post>
+          <app-admin-news-post *ngIf="side=='admin'" (deletePost)="delete($event)" [post]="post"></app-admin-news-post>
+      </div>
+  </div>
+</div>

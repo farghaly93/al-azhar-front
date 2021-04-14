@@ -1,0 +1,139 @@
+* {
+  font-family: "Cairo";
+}
+
+.overlay-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url(https://scontent.fcai21-2.fna.fbcdn.net/v/t1.0-9/90427657_2505350286448167_6604245291208015872_n.jpg?_nc_cat=105&ccb=1-3&_nc_sid=8bfeb9&_nc_ohc=B8B3UeRfh8cAX9LLrdG&_nc_ht=scontent.fcai21-2.fna&oh=65a98d0bcff4d84c7b9e576a2d14d30b&oe=60836C2A) center center;
+  background-size: cover;
+}
+
+.overlay-color {
+  background:rgba(255, 255, 255, 0.7);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+header {
+  h1 {
+    font-size: 3rem;
+    @media(max-width: 540px) {
+      font-size: 2rem;
+    }
+    // @media(max-width: 370px) {
+    //   font-size: 1.4rem;
+    // }
+  }
+  p {
+    color: rgba(255, 255, 255, 0.856);
+    @media(max-width: 400px) {
+      font-size: 1rem;
+    }
+  }
+}
+
+.content {
+  position: absolute;
+  top: 7%;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+
+.gradient {
+  background: rgb(2,0,36);
+  background: linear-gradient(108deg, rgb(79, 149, 196) 0%, rgb(40, 146, 141) 35%, rgb(61, 94, 100) 100%);
+}
+
+.page-header {
+  color: #fff;
+  font-size: 1.2rem;
+}
+
+.companies {
+}
+
+.first-wave {
+  // position: absolute;
+  // transform: translateY(26%);
+  // top: 10%;
+}
+
+.features {
+  h2 {
+    text-align: right;
+  }
+  p {
+    text-align: right;
+  }
+  .list {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    @media(max-width: 700px) {
+      padding: .1rem;
+    }
+    div {
+      padding-left: 2rem;
+      line-height: 1.5rem;
+      font-weight: 700;
+      margin: 1rem;
+      text-align: right;
+      color: rgba(255, 255, 255, 0.836);
+      font-weight: 600;
+      font-size: 1.7rem;
+      &::after {
+        content: "";
+        width: 5px;
+        height: 50px;
+        background: url("../../../assets/img/coding_.svg") center center;
+        text-align:justify;
+        font-size: 1.2rem;
+        font-weight: 700;
+      }
+      @media(max-width: 700px) {
+        font-size: 1.3rem;
+      }
+      @media(max-width: 700px) {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}
+
+.icons {
+  .icon {
+    width: 100px;
+    height: 100px;
+    border-radius: 100%;
+    font-size: 3rem;
+    color: #fff;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+  }
+}
+
+.gallery {
+  background: #eee;
+}
+
+.services {
+  color: rgb(212, 206, 206);
+}
+
+footer {
+  a {
+    text-decoration: none;
+    color:rgb(10, 74, 117);
+    font-weight: 700;
+  }
+}

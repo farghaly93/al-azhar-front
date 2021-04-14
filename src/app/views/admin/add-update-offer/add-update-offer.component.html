@@ -1,0 +1,79 @@
+<div class="container p-md-5 p-0 py-5">
+  <div class="card p-2 p-md-5 shadow-lg">
+    <h4 class="text-muted  text-center">أضف أعلان جديد</h4>
+    <hr>
+    <div [ngClass]="[message !=''?'show': '']" class="message container p-2">{{message}}</div>
+    <form #f="ngForm" (submit)="submit(f)">
+      <div class="row g-2" dir="rtl">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label">عنواون العرض</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="title" required >
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label">نوع العرض</label>
+            <input type="text" class="form-control" name="activity" [(ngModel)]="activity" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label">نوع الملكية</label>
+            <input type="text" class="form-control" name="type" [(ngModel)]="type" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label">مساحة الملكية</label>
+            <input type="text" class="form-control" name="area" [(ngModel)]="area" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label">سعر المتر</label>
+            <input type="text" class="form-control" name="price" [(ngModel)]="price" required>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label">موقع الملكية</label>
+            <input type="text" class="form-control" name="site" [(ngModel)]="site"   required>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="" class="form-label">التفاصيل</label>
+            <textarea rows="4" class="form-control" name="desc" [(ngModel)]="desc" required></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="row justify-content-end">
+        <div class="col-md-3 mt-4 p-1">
+          <div class="form-check form-switch w-100 text-end">
+            <input id="check" type="checkbox" class="form-check-input" name="negotiable" required style="font-size: 23px;">
+            <label for="check" class="form-check-label">قابل للتفاوض</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="map">
+        <agm-map style="height:50vh;" [latitude]='lat' [longitude]='lng' [zoom]="zoom" (mapClick)="clicked($event)">
+          <agm-marker [latitude]='lat' [longitude]='lng' ></agm-marker>
+        </agm-map>
+      </div>
+
+      <hr>
+      <div class="row justify-content-end">
+        <div class="col-md-12 col-lg-4">
+          <div *ngIf="loading" class="container text-center p-5">
+            <app-spinner></app-spinner>
+          </div>
+          <button [disabled]="!f.valid" type="submit" class="btn btn-success w-100">انشر الأعلان</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

@@ -1,0 +1,28 @@
+@import '../../../styles.scss';
+.offer {
+  border-bottom: 5px $secondary-color solid;
+  font-family: "Cairo";
+  .title {
+    font-size: 1.4rem;
+    color: $secondary-color;
+    font-weight: 600;
+
+    .date {
+      font-size: 20px;
+      color: $primary-color;
+    }
+  }
+
+  .spec {
+    font-size: 1.1rem;
+    font-weight: 400;
+  }
+}
+
+@media(max-width: 768px) {
+  .offer {
+    .spec {
+      font-size: .9rem;
+    }
+  }
+}

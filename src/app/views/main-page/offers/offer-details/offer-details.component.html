@@ -1,0 +1,112 @@
+<!-- <div class="overlay"></div> -->
+<div class="container p-2">
+
+  <div *ngIf="loading" class="container text-center p-5">
+    <app-spinner></app-spinner>
+  </div>
+  <h2 class="text-muted display-7 text-center">تفاصيل العرض</h2>
+
+  <div class="container-sm">
+    <div class="row">
+      <div class="map col-md-12">
+        <app-maps [coords]="{lat: lat, lng: lng}"></app-maps>
+      </div>
+    </div>
+  </div>
+
+  <br><br>
+
+  <h5 class="text-muted text-end">معلومات البائع</h5>
+  <br>
+  <div class="contacts container bg-light p-md-5 p-2 shadow-lg bg-gradient">
+    <div class="row g-4">
+      <div class="contact col-md-6">
+        <div class="d-flex justify-content-start">
+          <span class=""><i class="fa fa-home"></i></span>
+          <p style="font-size:13px;" class="">شارع الترعة الابراهيمية اسفل كافيه كوكب الشرق بجوار موقف الازهر</p>
+        </div>
+      </div>
+      <div class="contact col-md-6">
+        <div class="d-flex justify-content-start">
+          <span class=""><i class="fa fa-phone"></i></span>
+          <p class="">01028038146</p>
+        </div>
+      </div>
+      <div class="contact col-sm-6">
+        <div class="d-flex justify-content-start">
+          <span class=""><i class="fa fa-facebook"></i></span>
+          <p class="">فيسبوك</p>
+        </div>
+      </div>
+      <div class="contact col-sm-6">
+        <div class="d-flex justify-content-start">
+          <span class=""><i class="fa fa-whatsapp"></i></span>
+          <p class="">واتساب</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <br><br>
+
+  <h5 class="text-muted text-end">معلومات اساسية</h5>
+  <div class="details container p-md-5 p-4">
+    <div class="row" dir="rtl">
+      <div class="key col-md-3 order-md-2">
+        <h3 style="color: rgb(141, 44, 65);" class="">{{offerDetails.title}}</h3>
+        <p class="">{{offerDetails.updated_at}}</p>
+      </div>
+    </div>
+
+    <div class="row">
+      <p class="key col-md-3 order-md-2">نوع التعامل</p>
+      <p class="value col-md-9 order-md-1">{{offerDetails.activity}}</p>
+    </div>
+
+    <div class="row">
+      <p class="key col-md-3 order-md-2">نوع الملكية</p>
+      <p class="value col-md-9 order-md-1">{{offerDetails.type}}</p>
+    </div>
+
+    <div class="row">
+      <p class="key col-md-3 order-md-2">مكان الملكية</p>
+      <p class="value col-md-9 order-md-1">{{offerDetails.site}}</p>
+    </div>
+    <div class="row">
+      <p class="key col-md-3 order-md-2">مساحة الأرض</p>
+      <p class="value col-md-9 order-md-1">متر مربع {{offerDetails.area}}</p>
+    </div>
+
+    <div class="row">
+      <p class="key col-md-3 order-md-2">سعر المتر</p>
+      <p class="value col-md-9 order-md-1">جنيه {{offerDetails.price}}</p>
+    </div>
+
+    <div class="row" dir="rtl">
+      <p style="color: green" class="key col-md-3 order-md-2">{{negotiable?'قابل للتفاوض': 'غير قابل للتفاوض'}}</p>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <br><br><hr>
+        <h5 class="text-muted text-end mb-4">بعض التفاصيل</h5>
+        <div class="w-100 container p-0">
+          <ol class="desc lis-group">
+            <li *ngFor="let desc of descriptions" class="text-end">{{desc}}</li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row justify-content-start my-3">
+    <div class="col-md-4 col-12">
+      <!-- <button (click)="shareOnFacebook()" class="w-100 btn btn-primary btn-lg">share on facebook</button> -->
+      <div class="w-100 btn btn-primary btn-lg" [socialShare]="'fb'">share on facebook</div>
+    </div>
+  </div>
+
+</div>
+

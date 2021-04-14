@@ -1,0 +1,85 @@
+<div class="container p-md-5 p-0 py-5">
+  <div class="card p-2 p-md-5 shadow-lg">
+    <h4 class="text-muted  text-center">تعديل بيانات الشركة</h4>
+    <hr>
+    <div [ngClass]="[message !=''?'show': '']" class="message container p-2">{{message}}</div>
+    <form #f="ngForm" (submit)="submit(f)">
+      <div class="row g-2" dir="rtl">
+        <div class="col-md-6">
+          <div class="form-group">
+            <label for="" class="form-label">اسم الشركة</label>
+            <input type="text" class="form-control" name="title" [(ngModel)]="title" placeholder="اسم الشركة" required >
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="" class="form-label">وصف سريع</label>
+            <textarea class="form-control" name="desc" [(ngModel)]="desc" placeholder="وصف سريع" required></textarea>
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="" class="form-label">رابط الفيسبوك</label>
+            <input type="text" class="form-control" name="facebook" [(ngModel)]="facebook" placeholder="رابط الفيسبوك" required >
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="" class="form-label">رقم التليفون</label>
+            <input type="phone" class="form-control" name="phone" [(ngModel)]="phone" placeholder="رقم اللتيفون" required >
+          </div>
+        </div>
+        <div class="col-md-3">
+          <div class="form-group">
+            <label for="" class="form-label">رقم الواتساب</label>
+            <input type="phone" class="form-control" name="whatsapp" [(ngModel)]="whatsapp" placeholder="رقم الواتساب" required >
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="" class="form-label">العنوان</label>
+            <input type="phone" class="form-control" name="address" [(ngModel)]="address" placeholder="العنوان" required >
+          </div>
+        </div>
+        <div class="col-md-12">
+          <div class="form-group">
+            <label for="" class="form-label">الأيميل</label>
+            <input type="phone" class="form-control" name="email" [(ngModel)]="email" placeholder="ايميل" required >
+          </div>
+        </div>
+        <hr>
+        <div class="col-md-4">
+          <div class="form-group">
+            <label for="features">أضف اختصاص للشركة</label>
+            <div class="input-group">
+              <input type="text" #addFtr  id="features" class="form-control" placeholder="حدد عدد الاختصاصات">
+              <button (click)="addFeature(addFtr.value)" type="button" class="input-group-button btn btn-primary">أضف</button>
+            </div>
+          </div>
+          <br>
+          <div class="row g-2">
+            <div *ngFor="let ftr of features; let i=index" class="col-md-12">
+              <div class="feature" dir="rtl">
+                <span>{{i+1}}</span>
+                <div class="feature-text">{{ftr}}</div>
+                <div (click)="deleteFeature(i)" class="remove">X</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+      <br>
+      <div class="row justify-content-end">
+        <div *ngIf="loading" class="container text-center p-5">
+          <app-spinner></app-spinner>
+        </div>
+        <div class="col-md-12 col-lg-4">
+          <button [disabled]="!f.valid" type="submit" class="btn btn-success w-100">انشر الخبر</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

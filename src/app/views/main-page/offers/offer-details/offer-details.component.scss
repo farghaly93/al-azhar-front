@@ -1,0 +1,91 @@
+h2 {
+  font-family: "Cairo";
+}
+
+.map {
+  width: 100%;
+  height: 50vh;
+  // height: auto;
+  // background: rgba(128, 128, 128, 0.562);
+
+  @media(max-width: 700px) {
+    height: 80vh;
+  }
+}
+
+
+.details {
+  background: rgba(255, 255, 255, 0.719);
+  border: 3px solid rgb(189, 188, 188);
+  .row {
+    margin-bottom: 20px;
+  }
+  // align-items: center;
+  // background:rgba(128, 128, 128, 0.562);
+
+  .value {
+    direction: rtl;
+    font-weight: 500;
+    font-size: 1.3rem;
+    color: rgb(2, 2, 2);
+    font-family: 'Cairo', sans-serif;
+
+    @media(max-width: 700px) {
+      font-size: .9rem;
+    }
+    @media(max-width: 250px) {
+      font-size: .8rem;
+    }
+  }
+  .key {
+    direction: rtl;
+    font-weight: 700;
+    font-size: 1.3rem;
+    color: rgba(33, 32, 32, 0.733);
+    font-family: 'Cairo', sans-serif;
+    border-bottom: .5px solid rgba(119, 119, 119, 0.199);
+
+    @media(max-width: 250px) {
+      font-size: .8rem;
+    }
+  }
+
+  .desc {
+    direction: rtl;
+
+    li {
+      // list-style-type: none;
+      // background: url("../../../../assets/img/list-arrow.svg");
+      background-repeat: no-repeat;
+      font-family: 'Cairo', sans-serif;
+      font-weight: 200;
+      color: rgba(56, 56, 56, 0.892);
+      // font-size: large;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+
+
+.contact {
+  direction: rtl;
+  .d-flex {
+    align-items: center;
+    span {
+      margin-left: 18px;
+      font-size: 30px;
+      @media(max-width: 700px) {
+        font-size: 1.3rem;
+      }
+    }
+    p {
+      font-size: 18px;
+      font-weight: 500;
+
+      @media(max-width: 700px) {
+        font-size: 1.3rem;
+      }
+    }
+  }
+}

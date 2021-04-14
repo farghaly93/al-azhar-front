@@ -1,0 +1,68 @@
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: url('../../../assets/img/login.jpg') center center;
+      background: cover;
+  }
+  .con {
+      position: absolute;
+      top: 0;
+      left: 0;
+      height: 100%;
+      width: 100%;
+      background: rgba(238, 233, 233, 0.212);
+
+      .row {
+          background: rgba(238, 238, 238, 0.507);
+      }
+  }
+  .card {
+      // padding: 10px 100px;
+  }
+
+  label {
+      color: #888;
+  }
+  input, input:focus {
+      // color:rgb(54, 54, 54);
+      // padding: 10px;
+      // font-size: 1.2rem;
+      // font-weight: 700;
+  }
+
+
+  .error {
+    color: rgb(209, 104, 104);
+    font-size: 16px;
+    font-weight: 600;
+    background-color: rgb(233, 227, 227);
+  }
+
+  .spinner {
+    width: 40px;
+    height: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 100%;
+    background: transparent;
+    // border-bottom: 8px solid rgb(51, 51, 54);
+    border-left: 2px solid rgb(51, 51, 54);
+    border-top: 2px solid rgb(51, 51, 54);
+    animation: spin 1.5s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {transform: rotate(0deg)};
+    50% {transform: rotate(360deg)};
+    100% {transform: rotate(720deg)};
+  }
+
+  .invalid {
+    color: rgb(206, 109, 109);
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 500;
+  }

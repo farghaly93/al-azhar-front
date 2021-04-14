@@ -1,0 +1,77 @@
+.full-screen {
+  position: absolute;
+  top: 10vh;
+  left: 0;
+  height: 90vh;
+  width: 100vw;
+  background: rgba(234, 235, 238, 0.692);
+  overflow: hidden;
+
+  .menu-section1 {
+    cursor: pointer;
+    width: 100%;
+    height: 30vh;
+    background: url("../../../assets/img/news-bg.jpg") center center;
+    background-size: cover;
+    .item {
+      background: #ca323fc2;
+    }
+  }
+
+  .menu-section2 {
+    cursor: pointer;
+    width: 100%;
+    height: 30vh;
+    background: url("../../../assets/img/buildings.jpg") center center;
+    background-size: cover;
+    .item {
+      background: #36577dbf;
+    }
+  }
+
+  .menu-section3 {
+    cursor: pointer;
+    width: 100%;
+    height: 30vh;
+    background: url("../../../assets/img/home-bg.jpg") center center;
+    background-size: cover;
+    .item {
+      background: #35aca68c;
+    }
+  }
+}
+
+.item {
+  border: 4px solid rgba(202, 202, 209, 0.842);
+  position:relative;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  // text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: #fff;
+  font-family: "Cairo";
+
+  @media(max-width: 700px) {
+    font-size: 2.2rem;
+  }
+  @media(max-width: 390px) {
+    font-size: 1.4rem;
+  }
+  @media(max-width: 200px) {
+    font-size: .7rem;
+  }
+}
+
+
+// svg {
+//   position: relative;
+//   left: 0;
+//   bottom: 0;
+//   height: 20%;
+//   width: 100vw;
+// }

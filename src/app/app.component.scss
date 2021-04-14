@@ -1,0 +1,22 @@
+.bars {
+  cursor: pointer;
+}
+
+
+nav {
+  z-index: 3000;
+  padding: 10px;
+  align-items:center;
+  a {
+    font-weight:500;
+    color: #555;
+
+    &.activated {
+      color: rgb(114, 21, 21);
+    }
+  }
+}
+
+.pages {
+  padding-top: 8vh
+}

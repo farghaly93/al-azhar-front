@@ -1,0 +1,51 @@
+<form [formGroup]="form">
+  <div class="overlay"></div>
+  <div class="con">
+      <div class="row h-100 justify-content-center align-items-center">
+          <div class="col-md-8 p-3">
+              <div class="card px-md-5 px-3 py-4 shadow-lg">
+                  <!-- <svg width="100%" height="30px">
+                      <rect width="100%" height="100%" x="0" y="0" fill="red"/>
+                  </svg> -->
+                  <h1 class="h2 text-muted text-center">{{login? "Login": "Sign up"}}</h1>
+                  <div class="error container text-center shadow-lg m-1 p-2 bg-gradient bg-light">
+                    {{error}}
+                  </div>
+                  <div class="form-group mb-3">
+                      <label for="email" class="form-label">Email</label>
+                      <div class="input-group">
+                          <span class="input-group-text d-none d-md-block">email</span>
+                          <input formControlName="email" class="form-control" type="email" id="email" placeholder="Email">
+                      </div>
+                      <p *ngIf="isValid('email', 'required')" class="invalid">Email is required</p>
+                      <p *ngIf="isValid('email', 'email')" class="invalid">Invalid email</p>
+                  </div>
+                  <div class="form-group mb-3">
+                      <label for="password" class="form-label">Password</label>
+                      <div class="input-group">
+                          <span class="input-group-text d-none d-md-block">password</span>
+                          <input formControlName="password" class="form-control" type="password" id="password" placeholder="Password">
+                      </div>
+                      <p *ngIf="isValid('password', 'required')" class="invalid">password is required</p>
+                      <p *ngIf="isValid('password', 'minlength')" class="invalid">short password</p>
+                  </div>
+                  <hr>
+                  <div *ngIf="loading" class="text-center p-3">
+                    <app-spinner></app-spinner>
+                  </div>
+                  <div class="row g-2">
+                      <div class="col-md-6">
+                          <button [disabled]="!form.valid" (click)="submitLogin()" type="button" class="btn btn-primary w-100">{{login?"login": "sign up"}}</button>
+                      </div>
+                      <div class="col-md-6">
+                          <button (click)="switchAuth()" type="button" class="btn btn-primary w-100">{{login?"sign up": "login"}}</button>
+                      </div>
+                      <!-- <div class="col-md-6">
+                          <button type="button" (click)="switchAuth()" class="btn btn-secondary w-100">{{login?'sig nup': 'login'}}</button>
+                      </div> -->
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+</form>
