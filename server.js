@@ -11,7 +11,7 @@ app.use('/', express.static(path.join(__dirname, 'dist/alazhar')));
 // //app.use(expressValidator);
 
 
- app.get('/*', (req, res, next) => {
+ app.get((req, res, next) => {
    res.sendFile(path.join(__dirname, 'dist/alazhar', 'index.html'));
  });
 

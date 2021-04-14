@@ -30,7 +30,9 @@ export class HomeComponent implements OnInit {
 
   goto(link: string) {
     if(link === 'whatsapp') {
-      window.open('https://api.whatsapp.com/send?phone='+this.info.phone, "_blank");
+      // window.open('https://api.whatsapp.com/send?phone='+this.info.phone, "_blank");
+      window.open('whatsapp://send?text=Hello%2C%20World!');
+      window.open('intent://send/+'+this.info.whatsapp+'#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end');
     }
 
     if(link === 'email') {
@@ -38,7 +40,9 @@ export class HomeComponent implements OnInit {
     }
 
     if(link === 'facebook') {
-      window.open("https://www.facebook.com/AlQousi", "_blank");
+
+      // window.open("https://www.facebook.com/AlQousi", "_blank");
+      window.open("fb://facewebmodal/f?href=" + this.info.facebook);
     }
   }
 
