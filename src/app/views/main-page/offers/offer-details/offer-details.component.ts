@@ -40,15 +40,6 @@ export class OfferDetailsComponent implements OnInit {
         this.loading = false;
       });
     });
-
-    // const headers = new HttpHeaders({
-    //   'x-forwarded-host': 'foo',
-    //   'Access-Control-Allow-Origin': '*'
-    // });
-    // // headers.append('x-forwarded-host', 'foo');
-    // this.http.get('https://www.google.com.eg/maps/@27.1834644,31.182492,15z?hl=ar&authuser=0', {headers: headers}).subscribe(res => {
-    //   console.log(res);
-    // });
   }
 
   shareOnFacebook() {
