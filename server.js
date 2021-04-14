@@ -11,6 +11,6 @@ app.get("/*", (res, req) => {
   res.sendFile(path.join(__dirname + '/dist/alazhar/index.html'));
 });
 
-app.listen(env.process.PORT || port, () => {
+app.listen(process.env.PORT || port, () => {
   console.log("connected to port " + port);
 });
