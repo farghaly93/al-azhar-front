@@ -6,7 +6,7 @@ const path = require("path");
 // const server = http.createServer(app);
 const port = 8080;
 
-app.use('/', express.static(path.join(__dirname, 'dist/alazhar')));
+app.use('/*', express.static(path.join(__dirname, 'dist/alazhar')));
 
 // //app.use(expressValidator);
 
