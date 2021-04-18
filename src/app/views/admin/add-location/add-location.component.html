@@ -1,0 +1,42 @@
+<div class="container p-md-5 p-0 py-5">
+  <div class="card p-2 p-md-5 shadow-lg">
+    <h4 class="text-muted  text-center">أضف موقع جديد</h4>
+    <hr>
+    <div [ngClass]="[message !=''?'show': '']" class="message container p-2">{{message}}</div>
+
+    <div class="map">
+      <agm-map style="height:50vh;" [latitude]='lat' [longitude]='lng' [zoom]="zoom" (mapClick)="clicked($event)">
+        <agm-marker [latitude]='lat' [longitude]='lng' ></agm-marker>
+      </agm-map>
+    </div>
+    <br><br>
+    <form #f="ngForm" (submit)="submit(f)">
+      <div class="row g-2" dir="rtl">
+        <div class="col-md-12">
+          <div class="form-group">
+            <label style="font-size:x-large" for="" class="form-label">رقم المربع السكني</label>
+            <input type="number" [(ngModel)]="number" name="number" class="form-control">
+          </div>
+        </div>
+
+        <div class="col-md-12">
+          <div class="form-group">
+            <label style="font-size:x-large" for="" class="form-label">التفاصيل</label>
+            <textarea rows="4" class="form-control" name="desc" [(ngModel)]="desc" required></textarea>
+          </div>
+        </div>
+      </div>
+
+      <hr>
+      <div *ngIf="loading" class="w-100 center">
+        <app-spinner></app-spinner>
+      </div>
+      <div class="row justify-content-end">
+        <div class="col-md-12 col-lg-4">
+          <button [disabled]="!f.valid" type="submit" class="btn btn-success w-100">انشر الأعلان</button>
+        </div>
+      </div>
+    </form>
+
+  </div>
+</div>

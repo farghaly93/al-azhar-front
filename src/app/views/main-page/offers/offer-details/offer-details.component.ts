@@ -2,7 +2,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Offer, OfferInterface } from '../offer.model';
-import { OffersServices } from '../../../../shared/offers.serive';
+import { OffersServices } from '../../../../shared/offers.service';
 import { GlobalServices } from 'src/app/shared/global.service';
 // import { SocialSharing } from '@ionic-native/social-sharing/ngx';
 import { FacebookService, InitParams, UIParams, UIResponse } from 'ngx-facebook';

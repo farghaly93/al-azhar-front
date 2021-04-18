@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Offer } from './offer.model';
-import { OffersServices } from '../../../shared/offers.serive';
+import { OffersServices } from '../../../shared/offers.service';
 
 @Component({
   selector: 'app-offers',

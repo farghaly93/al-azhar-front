@@ -19,9 +19,20 @@ h2 {
 
 h3 {
   font-family: 'Cairo', sans-serif;
-  color: rgb(28, 65, 33);
+  color: rgba(28, 38, 65, 0.863);
 
   @media(max-width: 700px) {
     font-size: 17px;
+  }
+}
+
+img {
+  width: 100%;
+  height: 80vh;
+  @media(max-width: 346px) {
+    height: 50vh;
+  }
+  @media(max-width: 260px) {
+    height: 40vh;
   }
 }

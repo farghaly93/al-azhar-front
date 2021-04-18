@@ -5,8 +5,8 @@
     <header class="page-header gradient">
       <div class="head container">
         <div class="row justify-content-center align-items-center">
-          <div class="col-md-5">
-            <img src="../assets/img/email_campaign_monochromatic.svg" alt="">
+          <div class="col-md-5 mt-5 header-photo">
+            <img style="width:100%;height:100%;" src="../assets/img/home3.svg" alt="">
           </div>
           <div class="col-md-7 p-4" dir="rtl">
             <h1 class="">{{info.title}}</h1>
@@ -62,7 +62,7 @@
       <div class="container">
         <div class="row py-5">
           <div class="col-md-6">
-            <img src="../assets/img/seo_monochromatic.svg" alt="">
+            <img style="width:100%;height:100%;" src="../assets/img/home1.svg" alt="">
           </div>
           <div class="col-md-6">
             <h2 class="display-2">اختصاصات الشركة</h2>
@@ -82,20 +82,20 @@
     <section class="gallery mt-5">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity=".95" d="M0,0L1440,64L1440,0L0,0Z"></path></svg>
       <div class="container bg-red">
-        <div class="row">
-          <div class="col-md-10">
-            <h3 class="display-3">Gallery</h3>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima fugit sit nihil illo vitae enim, molestiae odit adipisci eaque.</p>
+        <div class="row justify-content-end">
+          <div class="col-md-10" dir="rtl">
+            <h3 class="display-3">الصور</h3>
+            <p>بعض الصور للمكتب والمنطقة المحيطة ومنطقة العمل سوف يتم تحديثها على فترات</p>
           </div>
         </div>
         <div class="row my-3 g-3">
-          <div class="col-md-4"><img src="../assets/img/c1.jpg" class="img-fluid" alt=""></div>
-          <div class="col-md-4"><img src="../assets/img/c2.jpg" class="img-fluid" alt=""></div>
-          <div class="col-md-4"><img src="../assets/img/c3.jpg" class="img-fluid" alt=""></div>
+          <div class="col-md-4 photo"><img src="../assets/img/photo1.jpg" alt=""></div>
+          <div class="col-md-4 photo"><img src="../assets/img/photo2.jpg" alt=""></div>
+          <div class="col-md-4 photo"><img src="../assets/img/photo3.jpg" alt=""></div>
         </div>
         <div class="row justify-content-end">
           <div class="col-md-2">
-            <button class="btn btn-secondary btn-lg">Explore</button>
+            <!-- <button class="btn btn-secondary btn-lg">Explore</button> -->
           </div>
         </div>
       </div>
@@ -104,45 +104,40 @@
 
 
     <section class="contact">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <h1>Contact us</h1>
-          </div>
-        </div>
-        <div class="row align-items-center">
-          <div class="col-md-6">
-            <div class="form-group row justify-content-between mb-2">
-              <div class="col-md-3">
-                <label class="col-form-label">subject</label>
-              </div>
-              <div class="col-md-9">
-                <input type="text" class="form-control" placeholder="subject">
-              </div>
-            </div>
-            <div class="form-group row mb-2">
-              <div class="col-md-3">
-                <label class="col-form-label">message</label>
-              </div>
-              <div class="col-md-9">
-                <textarea class="form-control" rows="5" cols="" placeholder="message"></textarea>
-              </div>
-            </div>
-            <div class="row justify-content-end">
-              <div class="col-md-3">
-                <button style="width:100%;" class="btn btn-primary">send</button>
-              </div>
+      <form #f="ngForm" (submit)="send(f)">
+        <div class="container">
+          <div class="row" dir="rtl">
+            <div class="col-md-12">
+              <h1 class="contact-heading">ارسل رسالة الي مطور الموقع عن أى ملحوظة أو اقتراح</h1>
             </div>
           </div>
-          <div class="col-md-5"><img src="../assets/img/handshake.svg" alt=""></div>
+          <div class="row align-items-center" dir="rtl">
+            <div class="col-md-6">
+              <div class="form-group row justify-content-between mb-2">
+                <input name="name" ngModel type="text" class="form-control" placeholder="الأسم" required>
+              </div>
+              <div class="form-group row mb-2">
+                <textarea name="message" ngModel class="form-control" rows="5" cols="" placeholder="الرسالة" required></textarea>
+              </div>
+              <div class="row justify-content-start">
+                <div class="col-md-3" dir="rtl">
+                  <div *ngIf="loading" class="w-100 text-center">
+                    <app-spinner></app-spinner>
+                  </div>
+                  <button [disabled]="loading || !f.valid" style="width:100%;" class="btn btn-primary">ارسال</button>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-5"><img src="../assets/img/handshake.svg" alt=""></div>
+          </div>
         </div>
-      </div>
+      </form>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#09795d" fill-opacity="0956" d="M0,96L60,117.3C120,139,240,181,360,181.3C480,181,600,139,720,149.3C840,160,960,224,1080,245.3C1200,267,1320,245,1380,234.7L1440,224L1440,320L1380,320C1320,320,1200,320,1080,320C960,320,840,320,720,320C600,320,480,320,360,320C240,320,120,320,60,320L0,320Z"></path></svg>
     </section>
 
     <footer class="gradient p-4">
       <div class="container-fluid text-center">
-        <span class="text-white">with greetings by <a href="">Farghaly</a></span>
+        <span class="text-white">with greetings by <a href="https://www.facebook.com/profile.php?id=100002429666746" target="_blank">Farghaly</a></span>
       </div>
     </footer>
   </div>

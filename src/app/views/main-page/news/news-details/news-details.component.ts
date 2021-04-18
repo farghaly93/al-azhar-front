@@ -26,7 +26,7 @@ export class NewsDetailsComponent implements OnInit {
       const postStringArray = text.split(" ");
       const postLength = postStringArray.length;
       this.part1 = postStringArray.slice(0, postLength/3).join(" ").split("/");
-      this.part2 = postStringArray.slice(postLength*(2/3), postLength).join(" ").split("/");
+      this.part2 = postStringArray.slice(postLength/3, postLength).join(" ").split("/");
       this.loading = false;
     });
 }

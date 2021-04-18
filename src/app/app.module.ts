@@ -34,6 +34,10 @@ import { AdminHomeComponent } from './views/admin/admin-home/admin-home.componen
 import { MenuPageComponent } from './views/menu-page/menu-page.component';
 import { NgxSocialShareModule } from 'ngx-social-share';
 import { FacebookModule } from 'ngx-facebook';
+import { WishlistComponent } from './views/wishlist/wishlist.component';
+import { MessagesComponent } from './views/admin/messages/messages.component';
+import { AddLocationComponent } from './views/admin/add-location/add-location.component';
+import { LocationsComponent } from './shared/locations/locations.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +66,10 @@ import { FacebookModule } from 'ngx-facebook';
     UpdateModeratorDataComponent,
     AdminHomeComponent,
     MenuPageComponent,
+    WishlistComponent,
+    MessagesComponent,
+    AddLocationComponent,
+    LocationsComponent,
   ],
   imports: [
     BrowserModule,

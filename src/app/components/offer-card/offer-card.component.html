@@ -1,4 +1,4 @@
-<div (click)="gotoOfferDetailsPage(offer.id)" class="cardd p-0 mb-3">
+<div class="cardd p-0 mb-3">
   <div class="row p-0 p-md-2">
     <div class="col-md-6 col-lg-6 align-self-stretch">
       <img src="../../../assets/img/buildings.jpg" alt="buildings" class="img-fluid">
@@ -11,6 +11,11 @@
         <p class="spec">{{offer.price}} جنيه للمتر</p>
         <p class="spec">{{offer.site}}</p>
         <p class="spec text-truncate">{{offer.desc}}</p>
+        <hr>
+        <div class="row justify-content-between">
+          <button (click)="gotoOfferDetailsPage(offer.id)" class="col-md-5 btn btn-primary">التفاصيل</button>
+          <button (click)="addToWishlist()" class="col-md-5 btn btn-success">{{wishlistBtn}}</button>
+        </div>
       </div>
     </div>
   </div>

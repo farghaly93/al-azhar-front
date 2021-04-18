@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { OfferInterface } from 'src/app/views/main-page/offers/offer.model';
-import { OffersServices } from 'src/app/shared/offers.serive';
+import { OffersServices } from 'src/app/shared/offers.service';
 
 @Component({
   selector: 'app-shared-offers',

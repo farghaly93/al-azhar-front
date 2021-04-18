@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { OfferInterface } from '../../main-page/offers/offer.model';
-import { OffersServices } from '../../../shared/offers.serive';
+import { OffersServices } from '../../../shared/offers.service';
 
 @Component({
   selector: 'app-add-update-offer',

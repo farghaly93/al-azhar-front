@@ -34,4 +34,19 @@ export class GlobalServices {
   getInfo() {
     return this.info;
   }
+
+  sendMessage(form: {name: string, message: string}) {
+    console.log(form);
+    return this.http.post(url + '/sendMessage', {
+      name: form.name, replyto: "miserable.farghaly93@gmail.com", message: form.message
+    });
+  }
+
+  getMessages() {
+   return this.http.get(url + '/fetchMessages');
+  }
+
+  deleteMessage(id: number) {
+    return this.http.get(url + '/deleteMessage/' + id);
+  }
 }

@@ -6,7 +6,8 @@
     <div class="col-md-6">
       <div class="input-group">
         <span class="input-group-text"><i class="fa fa-search"></i></span>
-        <input (keyup)="search($event)" type="text" class="form-control">
+        <input #query type="text" class="form-control">
+        <button type="button" (click)="search(query.value)" class="btn btn-primary">search</button>
       </div>
     </div>
     <div class="col-md-6">

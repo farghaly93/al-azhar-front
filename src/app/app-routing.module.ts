@@ -14,6 +14,10 @@ import { AddUpdateNewsComponent } from './views/admin/add-update-news/add-update
 import { AdminNewsComponent } from './views/admin/admin-news/admin-news.component';
 import { UpdateModeratorDataComponent } from './views/admin/update-moderator-data/update-moderator-data.component';
 import { MenuPageComponent } from './views/menu-page/menu-page.component';
+import { WishlistComponent } from './views/wishlist/wishlist.component';
+import { MessagesComponent } from './views/admin/messages/messages.component';
+import { AddLocationComponent } from './views/admin/add-location/add-location.component';
+import { LocationsComponent } from './shared/locations/locations.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent, pathMatch: 'full'},
@@ -24,6 +28,8 @@ const routes: Routes = [
     {path: "offers", component: OffersComponent},
     {path: "news", component: NewsComponent},
     {path: "offers/offer-details/:id", component: OfferDetailsComponent},
+    {path: "wishlist", component: WishlistComponent},
+    {path: "locations", component: LocationsComponent},
   ]},
 
 
@@ -36,6 +42,10 @@ const routes: Routes = [
     {path: 'update-news/:id', component: AddUpdateNewsComponent},
     {path: 'news', component: AdminNewsComponent},
     {path: 'update-info', component: UpdateModeratorDataComponent},
+    {path: 'messages', component: MessagesComponent},
+    {path: 'addLocations', component: AddLocationComponent},
+    {path: 'addLocations/:id', component: AddLocationComponent},
+    {path: 'locations', component: LocationsComponent},
   ]},
 
 ];

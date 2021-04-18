@@ -33,12 +33,10 @@ export class NewsPostsComponent implements OnInit {
     }
   }
 
-  search(e: any) {
-    if(e.keyCode == 13) {
-      this.newsServices.search(e.target.value).subscribe((res: any) => {
-        this.posts = res.posts;
-      });
-    }
+  search(query: string) {
+    this.newsServices.search(query).subscribe((res: any) => {
+      this.posts = res.posts;
+    });
   }
 
   filterByDate(e: any) {
@@ -47,5 +45,6 @@ export class NewsPostsComponent implements OnInit {
       this.posts = res.posts;
     });
   }
+
 
 }

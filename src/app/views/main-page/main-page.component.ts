@@ -14,7 +14,8 @@ export class MainPageComponent implements OnInit, OnDestroy {
   links = [
     {path: '/main-page/news', name: "اخر الاخبار", icon: "fa fa-user"},
     {path: '/main-page/offers', name: "العروض", icon: "fa fa-bars"},
-    {path: '/photos', name: "الصور", icon: "fa fa-photo"},
+    {path: '/main-page/wishlist', name: "المحفوظات", icon: "fa fa-photo"},
+    {path: '/main-page/locations', name: "المواقع والاراضي", icon: "fa fa-map"},
   ];
 
   ngOnInit(): void {
