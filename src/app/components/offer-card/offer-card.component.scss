@@ -21,3 +21,20 @@ img {
     width: 100vw;
   }
 }
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  button {
+    margin: 10px;
+  }
+  a {
+    text-decoration: none;
+    color:rgb(100, 100, 100);
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+  }
+}

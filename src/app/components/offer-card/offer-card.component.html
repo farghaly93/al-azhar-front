@@ -1,10 +1,10 @@
-<div class="cardd p-0 mb-3">
+<div class="cardd p-1 mb-3">
   <div class="row p-0 p-md-2">
     <div class="col-md-6 col-lg-6 align-self-stretch">
       <img src="../../../assets/img/buildings.jpg" alt="buildings" class="img-fluid">
     </div>
     <div class="col-md-12 p-0 col-lg-6">
-      <div class="content p-1 p-md-3">
+      <div class="content p-3 p-md-3">
         <h5>{{offer.title}}</h5>
         <p class="date">{{offer.updated_at}}</p>
         <p class="text-muted">{{offer.area}} متر مربع</p>
@@ -12,9 +12,11 @@
         <p class="spec">{{offer.site}}</p>
         <p class="spec text-truncate">{{offer.desc}}</p>
         <hr>
-        <div class="row justify-content-between">
-          <button (click)="gotoOfferDetailsPage(offer.id)" class="col-md-5 btn btn-primary">التفاصيل</button>
-          <button (click)="addToWishlist()" class="col-md-5 btn btn-success">{{wishlistBtn}}</button>
+        <div class="actions w-100">
+          <button (click)="gotoOfferDetailsPage(offer.id)" class="w-100 btn btn-primary">التفاصيل</button>
+          <!-- <button (click)="addToWishlist()" class="btn btn-outline-success">{{wishlistBtn}}</button> -->
+          <!-- <i class="fa fa-heart"></i> -->
+          <a (click)="addToWishlist()">{{wishlistBtn}}</a>
         </div>
       </div>
     </div>

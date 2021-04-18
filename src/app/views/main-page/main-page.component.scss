@@ -7,6 +7,37 @@
     padding: 0;
   }
 }
+.bars {
+  cursor: pointer;
+}
+
+
+nav {
+  z-index: 3000;
+  padding: 10px;
+  align-items:center;
+
+  .navbar-brand {
+    cursor: pointer;
+    font-family: 'Cairo';
+    font-weight: 800;
+    margin-left: 1rem;
+    font-size: 1.6rem;
+  }
+  a {
+    font-weight:700;
+    font-size: 1.3rem;
+    color: #555;
+    text-align: right;
+    font-family: "Cairo";
+    margin-top: 15px;
+    @media(max-width: 700px) {
+      font-size: 1rem;
+    }
+
+  }
+}
+
 .main-page {
   .overlay {
   z-index: 999;
@@ -80,3 +111,6 @@
   opacity: .1;
 }
 
+.active {
+  color: rgb(26, 104, 58);
+}

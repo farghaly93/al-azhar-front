@@ -1,4 +1,5 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GlobalServices } from 'src/app/shared/global.service';
 
 @Component({
@@ -8,9 +9,10 @@ import { GlobalServices } from 'src/app/shared/global.service';
 })
 export class MainPageComponent implements OnInit, OnDestroy {
 
-  constructor(private globalServices: GlobalServices) { }
+  constructor(private globalServices: GlobalServices, private router: Router) { }
 
   sidebar = false;
+  header = true;
   links = [
     {path: '/main-page/news', name: "اخر الاخبار", icon: "fa fa-user"},
     {path: '/main-page/offers', name: "العروض", icon: "fa fa-bars"},
@@ -19,15 +21,25 @@ export class MainPageComponent implements OnInit, OnDestroy {
   ];
 
   ngOnInit(): void {
+    this.router.events.subscribe((events) => {
+      if(this.router.navigated) {
+        this.sidebar = false;
+      }
+    });
     this.globalServices.menuBarsClicked.subscribe(() => {
       console.log("arrived");
-      this.sidebar = !this.sidebar;
+      this.sidebar = ! this.sidebar;
     });
   }
 
+  toggleSidebar() {
+    this.globalServices.onMenuBarsClick();
+  }
 
   ngOnDestroy() {
     // this.globalServices.menuBarsClicked.unsubscribe();
   }
+
+
 
 }

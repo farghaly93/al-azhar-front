@@ -22,7 +22,6 @@ import { LocationsComponent } from './shared/locations/locations.component';
 const routes: Routes = [
   {path: "", component: HomeComponent, pathMatch: 'full'},
   {path: "auth", component: AuthComponent},
-  {path: "newsDetails/:id", component: NewsDetailsComponent},
   {path: "main-page", component: MainPageComponent, children: [
     {path: '', component: MenuPageComponent},
     {path: "offers", component: OffersComponent},
@@ -30,6 +29,8 @@ const routes: Routes = [
     {path: "offers/offer-details/:id", component: OfferDetailsComponent},
     {path: "wishlist", component: WishlistComponent},
     {path: "locations", component: LocationsComponent},
+    {path: "newsDetails/:id", component: NewsDetailsComponent},
+
   ]},
 
 

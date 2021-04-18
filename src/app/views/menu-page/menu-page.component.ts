@@ -17,6 +17,8 @@ export class MenuPageComponent implements OnInit {
     if(link === 'home') this.router.navigate(['/']);
     if(link === 'offers') this.router.navigate(['main-page/offers']);
     if(link === 'news') this.router.navigate(['main-page/news']);
+    if(link === 'wishlist') this.router.navigate(['main-page/wishlist']);
+    if(link === 'locations') this.router.navigate(['main-page/locations']);
 
   }
 

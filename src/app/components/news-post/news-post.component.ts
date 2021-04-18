@@ -19,7 +19,7 @@ export class NewsPostComponent implements OnInit {
   }
 
   seeMore() {
-    this.router.navigate(['newsDetails/'+this.post.id]);
+    this.router.navigate(['main-page/newsDetails/'+this.post.id]);
   }
 
   photoURL() {

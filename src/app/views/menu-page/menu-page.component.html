@@ -1,18 +1,30 @@
 <div class="full-screen">
-  <div (click)="goto('news')" class="menu-section1 shadow-lg">
-    <!-- <div class="overlay"></div> -->
-    <div class="item">أخر الاخبار</div>
-    <!-- <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3440 520">
-      <path fill="red" fill-opacity="1" d="M0,224L1440,160L1440,320L0,320Z"></path>
-    </svg> -->
-  </div>
-  <div (click)="goto('offers')" class="menu-section2 shadow-lg">
-    <!-- <div class="overlay"></div> -->
-    <div class="item">عروض البيع والشراء</div>
-  </div>
-
-  <div (click)="goto('home')" class="menu-section3 shadow-lg">
-    <!-- <div class="overlay"></div> -->
-    <div class="item">الصفحة الرئيسية</div>
+  <div class="row">
+    <div (click)="goto('home')" class="btn col-6">
+      <div class="title">الرئيسية</div>
+    </div>
+    <div (click)="goto('news')" class="btn col-6">
+      <div class="title">اخر الأخبار</div>
+    </div>
+    <div (click)="goto('offers')" class="btn col-12">
+      <div class="title">عروض البيع والشراء</div>
+    </div>
+    <div (click)="goto('wishlist')" class="btn col-6">
+      <div class="title">العناصر المحفوظة</div>
+    </div>
+    <div (click)="goto('locations')" class="btn col-6">
+      <div class="title">مواقع الملكيات والأراضي</div>
+    </div>
   </div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
