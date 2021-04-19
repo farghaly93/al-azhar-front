@@ -16,8 +16,11 @@ export class HomeComponent implements OnInit {
   info!: Info;
   features: string[] = [];
   loading = false;
+  ua!: any;
 
   ngOnInit(): void {
+    this.ua = navigator.userAgent;
+
     this.globalServices.infoReady.subscribe(info => {
       this.info = info;
       this.features = this.info.features.split("/");
@@ -34,9 +37,10 @@ export class HomeComponent implements OnInit {
 
   goto(link: string) {
     if(link === 'whatsapp') {
-      // window.open('https://api.whatsapp.com/send?phone='+this.info.phone, "_blank");
-      // window.open('whatsapp://send?text=Hello%2C%20World!');
-      window.open('intent://send/+2'+this.info.whatsapp+'#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end');
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(this.ua))
+        window.open('intent://send/+2'+this.info.whatsapp+'#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end');
+      else
+        window.open('https://api.whatsapp.com/send?phone=+2'+this.info.whatsapp, "_blank");
     }
 
     if(link === 'email') {
@@ -44,9 +48,10 @@ export class HomeComponent implements OnInit {
     }
 
     if(link === 'facebook') {
-
-      // window.open("https://www.facebook.com/AlQousi", "_blank");
-      window.open("fb://facewebmodal/f?href=" + this.info.facebook);
+      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(this.ua))
+        window.open("fb://facewebmodal/f?href=" + this.info.facebook);
+      else
+        window.open("https://www.facebook.com/AlQousi", "_blank");
     }
   }
 
