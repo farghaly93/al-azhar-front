@@ -6,13 +6,13 @@ const path = require("path");
 // const server = http.createServer(app);
 const port = 8080;
 
-app.use('/', express.static(path.join(__dirname, 'dist/alazhar')));
+app.use('/', express.static(path.join(__dirname, 'www')));
 
 // //app.use(expressValidator);
 
 
  app.get((req, res, next) => {
-   res.sendFile(path.join(__dirname, 'dist/alazhar', 'index.html'));
+   res.sendFile(path.join(__dirname, 'www', 'index.html'));
  });
 
 app.listen(process.env.PORT || port, () => {
