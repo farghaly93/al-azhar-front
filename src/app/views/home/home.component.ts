@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
     if(link === 'whatsapp') {
       // window.open('https://api.whatsapp.com/send?phone='+this.info.phone, "_blank");
       // window.open('whatsapp://send?text=Hello%2C%20World!');
-      window.open('intent://send/+20'+this.info.whatsapp+'#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end');
+      window.open('intent://send/+2'+this.info.whatsapp+'#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end');
     }
 
     if(link === 'email') {

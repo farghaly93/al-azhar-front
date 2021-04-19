@@ -4,7 +4,7 @@
   <div *ngIf="loading" class="container text-center p-5">
     <app-spinner></app-spinner>
   </div>
-  <h2 class="text-muted display-7 text-center">تفاصيل العرض</h2>
+  <h2 class="text-muted display-7 text-center m-4">تفاصيل العرض</h2>
 
   <div class="container-sm">
     <div class="row">
@@ -87,16 +87,12 @@
       <p style="color: green" class="key col-md-3 order-md-2">{{negotiable?'قابل للتفاوض': 'غير قابل للتفاوض'}}</p>
     </div>
 
-    <div class="row">
-      <div class="col-md-12">
-        <br><br><hr>
-        <h5 class="text-muted text-end mb-4">بعض التفاصيل</h5>
-        <div class="w-100 container p-0">
-          <ol class="desc lis-group">
-            <li *ngFor="let desc of descriptions" class="text-end">{{desc}}</li>
-          </ol>
-        </div>
-      </div>
+    <br><br><hr>
+    <h5 class="text-muted text-end mb-4 p-0">بعض التفاصيل</h5>
+    <div class="w-100 container p-0">
+      <ol class="desc lis-group">
+        <li *ngFor="let desc of descriptions" class="text-end p-0">{{desc}}</li>
+      </ol>
     </div>
 
   </div>

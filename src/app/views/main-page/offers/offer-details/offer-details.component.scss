@@ -52,8 +52,12 @@ h2 {
 
   .desc {
     direction: rtl;
-
+    width: 100%;
     li {
+      width: 100%;
+      @media(max-width: 700px) {
+        margin-right: -20px;
+      }
       // list-style-type: none;
       // background: url("../../../../assets/img/list-arrow.svg");
       background-repeat: no-repeat;
