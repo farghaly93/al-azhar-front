@@ -3,7 +3,8 @@
 # compiled output
 /dist
 /android
-/tmp
+/www
+/android
 /out-tsc
 # Only exists if Bazel was run
 /bazel-out
