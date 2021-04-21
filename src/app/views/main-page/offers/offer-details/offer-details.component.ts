@@ -54,8 +54,12 @@ export class OfferDetailsComponent implements OnInit {
   }
 
   async shareOnFacebook() {
-
-    await navigator.share({});
+    const shareData = {
+      title: 'الأزهر للأستثمار العقاري',
+      text: 'ادخل شوف تفاصيل العرض ومكان الموقع على الخريطة وهيص',
+      url: 'https://al-azzhar.herokuapp.com/main-page/offers/offer-details/1',
+    }
+    await navigator.share(shareData);
 
     // var url="http://192.168.1.6:4200/main-page/offers/offer-details/1"; //Set desired URL here
     // var img="https://i.ytimg.com/vi/rL6fb4qFO1g/maxresdefault.jpg"; //Set Desired Image here
