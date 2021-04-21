@@ -23,7 +23,7 @@ export class OfferDetailsComponent implements OnInit {
     private fb: FacebookService,
     private http: HttpClient) {
       const initParams: InitParams = {
-        appId: '1234566778',
+        appId: '1927971220769787',
         xfbml: true,
         version: 'v2.8'
       };
@@ -53,23 +53,21 @@ export class OfferDetailsComponent implements OnInit {
     });
   }
 
-  async shareOnFacebook() {
-    const shareData = {
-      title: 'الأزهر للأستثمار العقاري',
-      text: 'ادخل شوف تفاصيل العرض ومكان الموقع على الخريطة وهيص',
-      url: 'https://al-azzhar.herokuapp.com/main-page/offers/offer-details/1',
-    }
+  shareOnFacebook() {
 
-    // if(/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(navigator.userAgent))
-      await navigator.share(shareData);
-    // else {
-      // var url="http://192.168.1.6:4200/main-page/offers/offer-details/1";
-      // var img="https://i.ytimg.com/vi/rL6fb4qFO1g/maxresdefault.jpg";
-      // var totalurl=encodeURIComponent(url+'?img='+img);
-      // window.open ('http://www.facebook.com/sharer.php?u='+totalurl,'','width=500, height=500, scrollbars=yes, resizable=no');
+    const params: UIParams = {
+      href: 'https://github.com/zyra/ngx-facebook',
+      method: 'share'
+    };
+
+    this.fb.ui(params)
+      .then((res: UIResponse) => console.log(res))
+      .catch((e: any) => console.error(e));
+
+    // let url = 'http://www.facebook.com/sharer.php?u=http://192.168.1.6:4200/';
+    //     let newwindow=window.open(url,'name','height=500,width=520,top=200,left=300,resizable');
+    //     newwindow?.focus();
     // }
-
-
 
   }
 }
