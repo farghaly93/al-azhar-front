@@ -53,21 +53,15 @@ export class OfferDetailsComponent implements OnInit {
     });
   }
 
-  shareOnFacebook() {
+  async shareOnFacebook() {
 
-    const params: UIParams = {
-      href: 'https://github.com/zyra/ngx-facebook',
-      method: 'share'
-    };
+    await navigator.share({});
 
-    this.fb.ui(params)
-      .then((res: UIResponse) => console.log(res))
-      .catch((e: any) => console.error(e));
+    // var url="http://192.168.1.6:4200/main-page/offers/offer-details/1"; //Set desired URL here
+    // var img="https://i.ytimg.com/vi/rL6fb4qFO1g/maxresdefault.jpg"; //Set Desired Image here
+    // var totalurl=encodeURIComponent(url+'?img='+img);
 
-    // let url = 'http://www.facebook.com/sharer.php?u=http://192.168.1.6:4200/';
-    //     let newwindow=window.open(url,'name','height=500,width=520,top=200,left=300,resizable');
-    //     newwindow?.focus();
-    // }
+    // window.open ('http://www.facebook.com/sharer.php?u='+totalurl,'','width=500, height=500, scrollbars=yes, resizable=no');
 
   }
 }

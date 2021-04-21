@@ -38,6 +38,8 @@ import { WishlistComponent } from './views/wishlist/wishlist.component';
 import { MessagesComponent } from './views/admin/messages/messages.component';
 import { AddLocationComponent } from './views/admin/add-location/add-location.component';
 import { LocationsComponent } from './shared/locations/locations.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { PadgeComponent } from './components/padge/padge.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +72,8 @@ import { LocationsComponent } from './shared/locations/locations.component';
     MessagesComponent,
     AddLocationComponent,
     LocationsComponent,
+    FooterComponent,
+    PadgeComponent,
   ],
   imports: [
     BrowserModule,

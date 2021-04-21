@@ -1,12 +1,18 @@
+* {
+  padding: 0;
+  margin: 0;
+}
+
 .full-screen {
   height: 90vh;
-  padding-top: 10px;
+  width: 99vw;
+  // padding-top: 10px;
 }
 
 .btn {
   padding: 0;
   cursor: pointer;
-  height: 30vh;
+  height: 30%;
   border: 2px solid #fff;
   background: crimson;
 
@@ -32,6 +38,7 @@
   }
 
   .title {
+    padding: 0;
     display: flex;
     flex-direction: column;
     justify-content: center;

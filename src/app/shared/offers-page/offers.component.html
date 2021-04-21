@@ -1,6 +1,9 @@
 <div class="page row p-0 p-md-3">
     <div class="col-md-2 filters bg-gradient">
-      <h4 class="text-center">ابحث عن العرض</h4>
+      <div class="header">
+        <a onclick="document.getElementsByClassName('filters')[0].classList.remove('open')">اغلق</a>
+        <h4 class="text-center">ابحث عن العرض</h4>
+      </div>
       <hr>
 
       <div class="row filter">
@@ -110,7 +113,7 @@
           </div>
         </div>
         <div class="filters-toggle" dir="rtl">
-          <button onclick="document.getElementsByClassName('filters')[0].classList.toggle('open')" style="font-family: 'Cairo';" class="btn btn-secondary sticky-top">فلترة النتائج</button>
+          <button onclick="document.getElementsByClassName('filters')[0].classList.add('open')" style="font-family: 'Cairo';" class="btn btn-secondary sticky-top">فلترة النتائج</button>
         </div>
       </div>
       <hr>

@@ -1,0 +1,63 @@
+footer {
+  width: 100vw;
+  padding: 1rem;
+  color: #444;
+  font-family: "Cairo";
+  font-size: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 3px solid rgb(186, 100, 51);
+  border-right: 3px solid rgb(186, 100, 51);
+
+  @media(max-width: 400px) {
+    padding: 0rem;
+    font-size: .7rem;
+    border-left: 1px solid rgb(186, 100, 51);
+    border-right: 1px solid rgb(186, 100, 51);
+  }
+
+  .arrange {
+    padding: 13px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // text-align: center;
+
+    .sec {
+      text-align: center;
+      a {
+        text-decoration: none;
+        color: rgb(186, 100, 51);
+      }
+    }
+  }
+}
+
+.download {
+  .title {
+    padding-top: 3.6rem;
+    height: 100%;
+    h5 {
+      font-size: 3rem;
+    }
+  @media(max-width: 1030px) {
+    padding-top: .2rem;
+    h5 {
+      font-size: 2.3rem;
+    }
+  }
+  @media(max-width: 700px) {
+    padding-top: .2rem;
+    h5 {
+      font-size: 1.6rem;
+    }
+  }
+  @media(max-width:278px) {
+    h5 {
+      font-size: 1.1rem;
+      }
+    }
+  }
+}

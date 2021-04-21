@@ -2,6 +2,23 @@
   width: 100vw;
 }
 
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 20px;
+  a {
+    text-decoration: none;
+    color: rgb(197, 67, 67);
+  }
+  @media(min-width: 800px) {
+    display: block;
+    a {
+      display: none;
+    }
+  }
+}
+
 .filters {
   // padding-top: 30px;
   background:rgba(229, 230, 231, 0.658);
@@ -64,10 +81,10 @@
     font-size: 30px;
   }
 }
-
+.filters-toggle {display: none;}
 @media(max-width: 800px) {
   .filters-toggle {
-    z-index: 2000;
+    // z-index: 2000;
     position: fixed;
     display: block;
     top: 12%;
