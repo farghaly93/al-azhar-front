@@ -37,9 +37,9 @@ export class HomeComponent implements OnInit {
 
   goto(link: string) {
     if(link === 'whatsapp') {
-      if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(this.ua))
-        window.open('intent://send/+2'+this.info.whatsapp+'#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end');
-      else
+      // if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(this.ua))
+      //   window.open('intent://send/+2'+this.info.whatsapp+'#Intent;scheme=smsto;package=com.whatsapp;action=android.intent.action.SENDTO;end');
+      // else
         window.open('https://api.whatsapp.com/send?phone=+2'+this.info.whatsapp, "_blank");
     }
 

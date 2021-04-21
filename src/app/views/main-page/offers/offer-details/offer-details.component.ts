@@ -59,13 +59,17 @@ export class OfferDetailsComponent implements OnInit {
       text: 'ادخل شوف تفاصيل العرض ومكان الموقع على الخريطة وهيص',
       url: 'https://al-azzhar.herokuapp.com/main-page/offers/offer-details/1',
     }
-    await navigator.share(shareData);
 
-    // var url="http://192.168.1.6:4200/main-page/offers/offer-details/1"; //Set desired URL here
-    // var img="https://i.ytimg.com/vi/rL6fb4qFO1g/maxresdefault.jpg"; //Set Desired Image here
-    // var totalurl=encodeURIComponent(url+'?img='+img);
+    // if(/Android|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini|Mobile|mobile|CriOS/i.test(navigator.userAgent))
+      await navigator.share(shareData);
+    // else {
+      // var url="http://192.168.1.6:4200/main-page/offers/offer-details/1";
+      // var img="https://i.ytimg.com/vi/rL6fb4qFO1g/maxresdefault.jpg";
+      // var totalurl=encodeURIComponent(url+'?img='+img);
+      // window.open ('http://www.facebook.com/sharer.php?u='+totalurl,'','width=500, height=500, scrollbars=yes, resizable=no');
+    // }
 
-    // window.open ('http://www.facebook.com/sharer.php?u='+totalurl,'','width=500, height=500, scrollbars=yes, resizable=no');
+
 
   }
 }
