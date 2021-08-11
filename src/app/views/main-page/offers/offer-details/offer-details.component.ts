@@ -1,7 +1,7 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Offer, OfferInterface } from '../offer.model';
+import { Offer, OfferInterface } from '../../../../shared/offer.model';
 import { OffersServices } from '../../../../shared/offers.service';
 import { GlobalServices } from 'src/app/shared/global.service';
 // import { SocialSharing } from '@ionic-native/social-sharing/ngx';
@@ -68,6 +68,13 @@ export class OfferDetailsComponent implements OnInit {
     //     let newwindow=window.open(url,'name','height=500,width=520,top=200,left=300,resizable');
     //     newwindow?.focus();
     // }
+
+
+    // var url="http://www.example.com"; //Set desired URL here
+    // var img="http://www.example.com/example.jpg"; //Set Desired Image here
+    // var totalurl=encodeURIComponent(url+'?img='+img);
+
+    // window.open ('http://www.facebook.com/sharer.php?u='+totalurl,'','width=500, height=500, scrollbars=yes, resizable=no');
 
   }
 }

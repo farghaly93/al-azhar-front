@@ -1,6 +1,10 @@
-<div>
+<div class="home_container">
 
-
+  <div class="background"></div>
+  <div [class]="openedImage?'opened':''" class="opened-image">
+    <img [src]="openedImage?.url" alt="" class="img-fluid">
+    <i (click)="cancelScaledPhoto()" class="fa fa-times"></i>
+  </div>
   <nav class="navbar navbar-light bg-light navbar-expand-lg fixed-top">
     <div class="container-fluid">
 
@@ -34,22 +38,32 @@
 
   <div class="overlay-image"></div>
   <div class="overlay-color"></div>
-  <div class="content">
-    <header class="page-header gradient">
+
+
+  <div class="home_content">
+     <header class="page-header gradient">
       <div id="start" class="head container">
         <div class="row justify-content-center align-items-center">
           <div class="col-md-5 mt-5 header-photo">
             <img style="width:100%;height:100%;" src="../assets/img/home3.svg" alt="">
           </div>
           <div class="col-md-7 p-4" dir="rtl">
-            <h1 class="">{{info.title}}</h1>
-            <p style="font-size:small;color:rgba(255, 255, 255, 0.761);">{{info.desc}}</p>
+            <h1 class="">{{info?.title}}</h1>
+            <p style="font-size:small;color:rgba(255, 255, 255, 0.761);">{{info?.desc}}</p>
             <br>
-            <p style="font-size: x-large;">{{info.phone}}</p>
-            <p>{{info.address}}</p>
-            <!-- <p>{{info.whatsapp}}</p> -->
-            <button (click)="begin()" style="font-size:30px;" type="button" class="btn btn-success bg-gradient btn-lg m-2 w-100">ابدأ الان</button>
+            <p style="font-size: x-large;">{{info?.phone}}</p>
+            <p>{{info?.address}}</p>
+            <button (click)="begin()" style="font-size:30px;" type="button" class="btn btn-success bg-gradient btn-lg w-100">ابدأ الان</button>
           </div>
+        </div>
+      </div>
+
+      <div class="intro_images row">
+        <div class="img1 col-md-6 openable">
+          <img src="../../../assets/img/intro_img1.jpg" alt="" class="img-fluid">
+        </div>
+        <div class="img2 col-md-6 openable">
+          <img src="../../../assets/img/intro_img2.jpg" alt="" class="img-fluid">
         </div>
       </div>
 
@@ -57,7 +71,6 @@
         <path fill="#fff" fill-opacity=".95" d="M0,96L34.3,85.3C68.6,75,137,53,206,48C274.3,43,343,53,411,80C480,107,549,149,617,170.7C685.7,192,754,192,823,202.7C891.4,213,960,235,1029,213.3C1097.1,192,1166,128,1234,106.7C1302.9,85,1371,107,1406,117.3L1440,128L1440,320L1405.7,320C1371.4,320,1303,320,1234,320C1165.7,320,1097,320,1029,320C960,320,891,320,823,320C754.3,320,686,320,617,320C548.6,320,480,320,411,320C342.9,320,274,320,206,320C137.1,320,69,320,34,320L0,320Z"></path>
       </svg>
     </header>
-
 
 
     <section id="social" class="icons">
@@ -68,21 +81,18 @@
               <img src="https://img.icons8.com/fluent-systems-filled/144/000000/facebook-new.png"/>
               </div>
             <h3>Facebook</h3>
-            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas necessitatibus magni.</p> -->
           </div>
           <div (click)="goto('email')" class="col-md-4 contact">
             <div class="icon mb-4">
               <img src="https://img.icons8.com/ios-filled/100/000000/email-open.png"/>
             </div>
             <h3>Email</h3>
-            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas necessitatibus magni.</p> -->
           </div>
           <div (click)="goto('whatsapp')" class="col-md-4 contact">
             <div class="icon mb-4">
               <img src="https://img.icons8.com/pastel-glyph/128/000000/whatsapp--v2.png"/>
             </div>
             <h3>Whatsapp</h3>
-            <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas necessitatibus magni.</p> -->
           </div>
         </div>
       </div>
@@ -92,7 +102,6 @@
 
     <section id="features" class="features gradient">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity=".95" d="M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,202.7C672,203,768,149,864,117.3C960,85,1056,75,1152,96C1248,117,1344,171,1392,197.3L1440,224L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"></path></svg>
-      <div class="container">
         <div class="row py-5">
           <div class="col-md-6">
             <img style="width:100%;height:100%;" src="../assets/img/home1.svg" alt="">
@@ -101,18 +110,20 @@
             <h2 class="display-2">اختصاصات الشركة</h2>
             <p>هذه الخدمات التي تختص بأدراتها الشركة ويمكنك اللجوء اليها في ايا مما يلي.</p>
             <div class="list">
-              <div *ngFor="let ftr of features">{{ftr}}</div>
+              <div *ngFor="let ftr of features">
+                <span>{{ftr}}</span>
+                <img src="../../../assets/img/left-arrow.svg" alt="">
+              </div>
             </div>
           </div>
         </div>
-      </div>
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity=".95" d="M0,192L48,176C96,160,192,128,288,138.7C384,149,480,203,576,202.7C672,203,768,149,864,117.3C960,85,1056,75,1152,96C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>
     </section>
 
 
 
 
-    <section id="pics" class="gallery mt-5">
+    <section #pop id="pics" class="gallery mt-5">
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="#fff" fill-opacity=".95" d="M0,0L1440,64L1440,0L0,0Z"></path></svg>
       <div class="container bg-red">
         <div class="row justify-content-end">
@@ -121,14 +132,15 @@
             <p>بعض الصور للمكتب والمنطقة المحيطة ومنطقة العمل سوف يتم تحديثها على فترات</p>
           </div>
         </div>
-        <div class="row my-3 g-3">
-          <div class="col-md-4 photo"><img src="../assets/img/photo1.jpg" alt=""></div>
-          <div class="col-md-4 photo"><img src="../assets/img/photo2.jpg" alt=""></div>
-          <div class="col-md-4 photo"><img src="../assets/img/photo3.jpg" alt=""></div>
+        <div class="row photos my-3 g-3">
+          <div *ngFor="let img of images; let i = index" class="col-md-4">
+            <div (click)="scalePhoto(i)" class="photo openable">
+              <img [src]="img.url" alt="">
+            </div>
+          </div>
         </div>
         <div class="row justify-content-end">
           <div class="col-md-2">
-            <!-- <button class="btn btn-secondary btn-lg">Explore</button> -->
           </div>
         </div>
       </div>
@@ -173,6 +185,7 @@
         <span class="text-white"><a href="https://www.facebook.com/profile.php?id=100002429666746" target="_blank">الأزهر للاستثمار العقاري</a></span>
       </div>
     </footer>
+
   </div>
 
 </div>

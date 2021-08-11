@@ -1,103 +1,106 @@
 <div class="page row p-0 p-md-3">
-    <div class="col-md-2 filters bg-gradient">
+    <div class="col-md-3 filters_section bg-gradient">
       <div class="header">
-        <a onclick="document.getElementsByClassName('filters')[0].classList.remove('open')">اغلق</a>
+        <a onclick="document.getElementsByClassName('filters_section')[0].classList.remove('open')">اغلق</a>
         <h4 class="text-center">ابحث عن العرض</h4>
       </div>
       <hr>
 
-      <div class="row filter">
-        <div class="col-md-12">
-          <h5>نوع العرض</h5>
-          <hr>
-        </div>
-        <div *ngFor="let activity of activities" class="property" dir="rtl">
-          <div class="value" dir="rtl">{{activity.value}} ({{activity.count}})</div>
-          <div class="check">
-            <input type="checkbox" name="activities" [value]="activity.value" (click)="setFilter('activity', activity.value)" class="form-check">
+      <div class="filters">
+        <div class="row filter">
+          <div class="col-md-12">
+            <h5>نوع العرض</h5>
+            <hr>
+          </div>
+          <div *ngFor="let activity of activities" class="property" dir="rtl">
+            <div class="value" dir="rtl">{{activity.value}} ({{activity.count}})</div>
+            <div class="check">
+              <input type="checkbox" name="activities" [value]="activity.value" (click)="setFilter('activity', activity.value)" class="form-check">
+            </div>
           </div>
         </div>
-      </div>
 
-      <div class="row filter">
-        <div class="col-md-12">
-          <h5>نوع الملكية</h5>
-          <hr>
-          <div *ngFor="let type of types" class="property" dir="rtl">
-            <div class="value" dir="rtl">{{type.value}} ({{type.count}})</div>
-            <div class="check">
+        <div class="row filter">
+          <div class="col-md-12">
+            <h5>نوع الملكية</h5>
+            <hr>
+            <div *ngFor="let type of types" class="property" dir="rtl">
+              <div class="value" dir="rtl">{{type.value}} ({{type.count}})</div>
+              <div class="check">
+                <input
+                  type="checkbox"
+                  name="type"
+                  [value]="type.value"
+                  (click)="setFilter('type', type.value)"
+                  class="form-check"
+                  [checked]="filters.type.includes(type.value)"
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="row filter">
+          <div class="col-md-12">
+            <h5>الموقع</h5>
+            <hr>
+            <div *ngFor="let site of sites" class="property" dir="rtl">
+              <div class="value" dir="rtl">{{site.value}} ({{site.count}})</div>
+              <div class="check">
+                <input
+                  type="checkbox"
+                  name="sites"
+                  [value]="site.value"
+                  (click)="setFilter('site', site.value)"
+                  class="form-check">
+              </div>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <div class="row filter">
+          <div class="col-md-12">
+            <label for="customRange3" class="text-center w-100">مساحة حتى <span>{{filters.area}} متر مربع </span> </label>
+            <div class="slider">
+              <span>10</span>
               <input
-                type="checkbox"
-                name="type"
-                [value]="type.value"
-                (click)="setFilter('type', type.value)"
-                class="form-check"
-                [checked]="filters.type.includes(type.value)"
-              >
+                (change)="filterResults()"
+                type="range"
+                [(ngModel)]="filters.area"
+                class="form-range"
+                min="10"
+                max="1000"
+                step="2"
+                id="customRange3">
+              <span>1000</span>
+            </div>
+          </div>
+        </div>
+        <hr>
+
+        <div class="row filter">
+          <div class="col-md-12">
+            <label for="customRange3" class="text-center w-100">سعر متر حتى <span>{{filters.price}} جنيه </span></label>
+            <div class="slider">
+              <span>1000</span>
+              <input
+                type="range"
+                (change)="filterResults()"
+                [(ngModel)]="filters.price"
+                class="form-range"
+                min="1000" max="100000"
+                step="200"
+                id="customRange3">
+              <span>100000</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="row filter">
-        <div class="col-md-12">
-          <h5>الموقع</h5>
-          <hr>
-          <div *ngFor="let site of sites" class="property" dir="rtl">
-            <div class="value" dir="rtl">{{site.value}} ({{site.count}})</div>
-            <div class="check">
-              <input
-                type="checkbox"
-                name="sites"
-                [value]="site.value"
-                (click)="setFilter('site', site.value)"
-                class="form-check">
-            </div>
-          </div>
-        </div>
-      </div>
-      <hr>
-
-      <div class="row filter">
-        <div class="col-md-12">
-          <label for="customRange3" class="text-center w-100">مساحة حتى <span>{{filters.area}} متر مربع </span> </label>
-          <div class="slider">
-            <span>10</span>
-            <input
-              (change)="filterResults()"
-              type="range"
-              [(ngModel)]="filters.area"
-              class="form-range"
-              min="10"
-              max="1000"
-              step="2"
-              id="customRange3">
-            <span>1000</span>
-          </div>
-        </div>
-      </div>
-      <hr>
-
-      <div class="row filter">
-        <div class="col-md-12">
-          <label for="customRange3" class="text-center w-100">سعر متر حتى <span>{{filters.price}} جنيه </span></label>
-          <div class="slider">
-            <span>1000</span>
-            <input
-              type="range"
-              (change)="filterResults()"
-              [(ngModel)]="filters.price"
-              class="form-range"
-              min="1000" max="100000"
-              step="200"
-              id="customRange3">
-            <span>100000</span>
-          </div>
-        </div>
-      </div>
     </div>
 
-    <div class="offers-content col-md-10 p-2 pt-4">
+    <div class="offers-content col-md-9 p-2 pt-4">
       <div class="row p-3 g-3">
         <div class="col-md-6" dir="rtl">
           <label class="form-label m-0" for="search">ابحث</label>
@@ -113,7 +116,7 @@
           </div>
         </div>
         <div class="filters-toggle" dir="rtl">
-          <button onclick="document.getElementsByClassName('filters')[0].classList.add('open')" style="font-family: 'Cairo';" class="btn btn-secondary sticky-top">فلترة النتائج</button>
+          <button onclick="document.getElementsByClassName('filters_section')[0].classList.add('open')" style="font-family: 'Cairo';" class="btn btn-secondary sticky-top">فلترة النتائج</button>
         </div>
       </div>
       <hr>

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Offer, OfferInterface } from 'src/app/views/main-page/offers/offer.model';
+import { Offer, OfferInterface } from 'src/app/shared/offer.model';
 
 @Component({
   selector: 'app-offer-card',

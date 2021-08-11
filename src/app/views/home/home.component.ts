@@ -1,8 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 import { GlobalServices } from 'src/app/shared/global.service';
+import { ImageInterface } from 'src/app/shared/image.model';
 import { Info } from 'src/app/shared/info.interface';
 
 @Component({
@@ -10,25 +11,48 @@ import { Info } from 'src/app/shared/info.interface';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss']
 })
-export class HomeComponent implements OnInit {
-  constructor(private globalServices: GlobalServices, private router: Router, private snackbar: MatSnackBar) { }
+export class HomeComponent implements OnInit, AfterViewInit {
+  constructor(
+    private globalServices: GlobalServices,
+    private router: Router,
+    private snackbar: MatSnackBar,
+    private _elementRef: ElementRef
+    ) { }
 
-  info!: Info;
+  info: any = {};
   features: string[] = [];
   loading = false;
   ua!: any;
+  images: ImageInterface[] = [];
+  openedImage: any = null;
+  // @ViewChild("pop") photos!: ElementRef;
+
 
   ngOnInit(): void {
     this.ua = navigator.userAgent;
-
     this.globalServices.infoReady.subscribe(info => {
-      this.info = info;
-      this.features = this.info.features.split("/");
+      if(info) {
+        this.info = info;
+        this.features = this.info.features.split("/");
+      }
     });
-    setTimeout(() => {
-      this.info = this.globalServices.getInfo();
+    this.info = this.globalServices.getInfo();
+    if(this.info) {
       this.features = this.info.features.split("/");
-    }, 800);
+    }
+
+    this.globalServices.getImages().subscribe((res: any) => {
+      this.images = res.images;
+    });
+  }
+
+  ngAfterViewInit() {
+    const photos = this._elementRef.nativeElement.querySelectorAll(".openable");
+    photos.forEach((photo: any) => {
+      photo.addEventListener("click", () => {
+        alert("clicked")
+      })
+    })
   }
 
   begin() {
@@ -67,6 +91,14 @@ export class HomeComponent implements OnInit {
         sb.onAction().subscribe(() => sb.dismiss());
       }
     })
+  }
+
+  scalePhoto(i: number) {
+    this.openedImage = this.images[i];
+  }
+
+  cancelScaledPhoto() {
+    this.openedImage = null;
   }
 
 }

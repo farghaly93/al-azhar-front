@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NewsServices } from 'src/app/shared/news.service';
-import { News } from 'src/app/views/news.intrface';
+import { News } from 'src/app/shared/news.intrface';
 
 @Component({
   selector: 'app-news-posts',
@@ -17,6 +17,7 @@ export class NewsPostsComponent implements OnInit {
   ngOnInit(): void {
     this.loading = true;
     this.newsServices.getNews().subscribe((res) => {
+      console.log(res)
       this.posts = res.news;
       this.loading = false;
     });

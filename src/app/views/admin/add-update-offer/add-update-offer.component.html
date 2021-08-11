@@ -3,7 +3,7 @@
     <h4 class="text-muted  text-center">أضف أعلان جديد</h4>
     <hr>
     <div [ngClass]="[message !=''?'show': '']" class="message container p-2">{{message}}</div>
-    <form #f="ngForm" (submit)="submit(f)">
+    <form #f="ngForm" (change)="testForm(f)" (submit)="submit(f)">
       <div class="row g-2" dir="rtl">
         <div class="col-md-6">
           <div class="form-group">
@@ -38,7 +38,7 @@
         <div class="col-md-6">
           <div class="form-group">
             <label for="" class="form-label">موقع الملكية</label>
-            <input type="text" class="form-control" name="site" [(ngModel)]="site"   required>
+            <input type="text" class="form-control" name="site" [(ngModel)]="site" required>
           </div>
         </div>
         <div class="col-md-12">
@@ -47,16 +47,40 @@
             <textarea rows="4" class="form-control" name="desc" [(ngModel)]="desc" required></textarea>
           </div>
         </div>
+        <!-- <ng-template> -->
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="" class="form-label">الأسم</label>
+              <input type="text" class="form-control" name="name" [(ngModel)]="name" required>
+            </div>
+          </div>
+
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="" class="form-label">رقم التليفون</label>
+              <input type="text" class="form-control" name="phone" [(ngModel)]="phone" required>
+            </div>
+        </div>
+        <div *ngIf="!user" class="row justify-content-end">
+          <div class="col-md-3 mt-4 p-1">
+            <div class="form-check form-switch w-100 text-end">
+              <input id="check" name="confirmed" type="checkbox" class="form-check-input" [(ngModel)]="confirmed" required style="font-size: 23px;">
+              <label for="check" class="form-check-label">تأكيد الأعلان</label>
+            </div>
+          </div>
+        </div>
+        <!-- </ng-template> -->
       </div>
 
       <div class="row justify-content-end">
         <div class="col-md-3 mt-4 p-1">
           <div class="form-check form-switch w-100 text-end">
-            <input id="check" type="checkbox" class="form-check-input" name="negotiable" required style="font-size: 23px;">
+            <input id="check" type="checkbox" class="form-check-input" name="negotiable"  [(ngModel)]="negotiable" required style="font-size: 23px;">
             <label for="check" class="form-check-label">قابل للتفاوض</label>
           </div>
         </div>
       </div>
+      <hr>
 
       <div class="map">
         <agm-map style="height:50vh;" [latitude]='lat' [longitude]='lng' [zoom]="zoom" (mapClick)="clicked($event)">
@@ -70,7 +94,7 @@
           <div *ngIf="loading" class="container text-center p-5">
             <app-spinner></app-spinner>
           </div>
-          <button [disabled]="!f.valid" type="submit" class="btn btn-success w-100">انشر الأعلان</button>
+          <button [disabled]="" type="submit" class="btn btn-success w-100">انشر الأعلان</button>
         </div>
       </div>
     </form>

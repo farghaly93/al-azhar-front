@@ -16,6 +16,9 @@ export class NewsDetailsComponent implements OnInit {
   part2: any[] = [];
   post!: any;
   loading = false;
+  image = "";
+  images: any[] = [];
+  video = "";
 
   ngOnInit(): void {
     const id = this.route.snapshot.params['id'];
@@ -23,10 +26,15 @@ export class NewsDetailsComponent implements OnInit {
     this.newsServices.getOneNews(+id).subscribe((res: any) => {
       const text = res.post.body;
       this.post = res.post;
+      this.video = res.post.video;
       const postStringArray = text.split(" ");
       const postLength = postStringArray.length;
       this.part1 = postStringArray.slice(0, postLength/3).join(" ").split("/");
       this.part2 = postStringArray.slice(postLength/3, postLength).join(" ").split("/");
+      const images = [...res.post.image];
+      this.image = images[0];
+      images.splice(0, 1);
+      this.images = images;
       this.loading = false;
     });
 }

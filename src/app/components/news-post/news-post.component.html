@@ -1,9 +1,8 @@
 
 <div class="news-card">
   <div class="img">
-    <img [src]="post.image" alt="news-img">
+    <img [src]="post.image[0]" class="img-fluid" alt="news-img">
   </div>
-  <div class="padge"></div>
   <div class="details">
     <div class="info">
       <h5>{{post.title}}</h5>

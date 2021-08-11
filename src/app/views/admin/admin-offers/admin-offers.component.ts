@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { OfferInterface } from '../../main-page/offers/offer.model';
+import { OfferInterface } from '../../../shared/offer.model';
 import { OffersServices } from '../../../shared/offers.service';
 
 @Component({

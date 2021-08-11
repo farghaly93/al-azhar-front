@@ -1,14 +1,15 @@
-.container {
+.cont {
   z-index: 3000;
   width: 100%;
-  min-height: 100vh;
+  height: 90vh;
+  overflow-y: auto;
   background: rgba(255, 255, 255, 0.967);
+  padding: 0;
+  overflow: auto;
+  // background: red;;
 }
 
 ul {
-  padding: 0;
-  height: 500px;
-  // overflow: auto;
   li {
     display: flex;
     flex-direction: row;

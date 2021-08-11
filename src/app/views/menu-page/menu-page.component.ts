@@ -15,10 +15,11 @@ export class MenuPageComponent implements OnInit {
 
   goto(link: string) {
     if(link === 'home') this.router.navigate(['/']);
-    if(link === 'offers') this.router.navigate(['main-page/offers']);
+    if(link === 'offers') this.router.navigate(['main-page/offers/published']);
     if(link === 'news') this.router.navigate(['main-page/news']);
     if(link === 'wishlist') this.router.navigate(['main-page/wishlist']);
     if(link === 'locations') this.router.navigate(['main-page/locations']);
+    if(link === 'add-offer') this.router.navigate(['main-page/add-offer']);
 
   }
 

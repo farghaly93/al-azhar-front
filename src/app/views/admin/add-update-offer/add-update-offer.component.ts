@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
-import { OfferInterface } from '../../main-page/offers/offer.model';
+import { OfferInterface } from '../../../shared/offer.model';
 import { OffersServices } from '../../../shared/offers.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class AddUpdateOfferComponent implements OnInit {
 
   message: string = '';
   update = false;
+  user = false;
   // offerDataa = {
     id= 0;
     title= '';
@@ -26,6 +27,9 @@ export class AddUpdateOfferComponent implements OnInit {
     negotiable = false;
     lat=51.678418;
     lng= 7.809007;
+    name = '';
+    phone = '';
+    confirmed = true;
     zoom = 15;
     loading = false;
   // };
@@ -43,27 +47,44 @@ export class AddUpdateOfferComponent implements OnInit {
       this.price = data.price;
       this.desc = data.desc;
       this.site = data.site;
-      this.negotiable = data.negotiable;
+      this.negotiable = data.negotiable==1?true: false;
       this.lat = +data.lat;
       this.lng = +data.lng;
+      this.name = data.name;
+      this.phone = data.phone;
+      this.confirmed = data.confirmed==1?true: false;
     } else {
       this.update =  false;
+    }
+
+    if(!localStorage.getItem('token')) {
+      this.user = true;
+    } else {
+      this.user = false;
     }
   }
 
   submit(f: NgForm) {
     this.loading = true;
     const offer: OfferInterface = {...f.value, lat: this.lat, lng: this.lng};
+    offer['confirmed'] = this.confirmed?1: 0;
+    offer['negotiable'] = this.negotiable?1: 0;
     if(this.update) offer['id'] = +this.id;
-    this.offerServices.addNewOffer(offer, this.update).subscribe(res => {
-      console.log(res);
+    this.offerServices.addNewOffer(offer, this.update, this.user).subscribe(res => {
       if(res.added) {
-        this.message = "تم نشر الأعلان بنجاح"
+        this.message = this.user?"في انتظار الموافقة على الاعلان" :"تم نشر الأعلان بنجاح";
+      } else {
+        this.message = "مشكلة اثناء رفع الأعلان";
       }
       this.loading = false;
+      if(this.user) f.reset();
+      window.scroll(0, 0);
     });
   }
 
+  testForm(f: NgForm) {
+    console.log(f);
+  }
   clicked(e: any) {
     console.log(e);
     this.lat = e.coords.lat;

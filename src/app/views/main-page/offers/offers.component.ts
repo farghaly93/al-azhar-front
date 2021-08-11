@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Offer } from './offer.model';
+import { OfferInterface } from '../../../shared/offer.model';
 import { OffersServices } from '../../../shared/offers.service';
 
 @Component({
@@ -11,11 +11,11 @@ export class OffersComponent implements OnInit {
 
   constructor(private offersServices: OffersServices) {}
 
-  offers: Offer[] = [];
+  offers: OfferInterface[] = [];
 
   ngOnInit(): void {
     this.offersServices.getOffers().subscribe(data => {
-      this.offers =data. offers;
+      this.offers =data.offers;
     });
   }
 

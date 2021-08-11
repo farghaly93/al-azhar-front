@@ -1,0 +1,37 @@
+ <div class="container p-2 p-md-5 py-5">
+   <div class="header">
+     <h3>ألبوم الصور</h3>
+   </div>
+      <div class="row imgs">
+        <div *ngFor="let image of images; let i=index" class="p-0 p-md-2 col-md-4">
+          <div class="img">
+            <div class="times">
+              <i (click)="removeAlbumImage(image._id)" class="fa fa-times"></i>
+            </div>
+            <div *ngIf="i == itemDeleting" class="container loading text-center p-5">
+              <app-spinner></app-spinner>
+            </div>
+            <img [src]="image.url" alt="" class="img-fluid">
+          </div>
+        </div>
+      </div>
+      <hr>
+
+      <div class="add_new">
+        <div class="times">
+          <i (click)="removeCurrentImage()" class="fa fa-times"></i>
+        </div>
+        <input (change)="pickImage($event)" type="file" style="display: none;" #image>
+        <img *ngIf="!currentImage" (click)="image.click()" src="../../../../assets/img/add_new_photo.png" alt="" class="img-fluid">
+        <img *ngIf="currentImage" [src]="currentImage" alt="" class="img-fluid">
+        <div *ngIf="loading" class="container loading text-center p-5">
+          <app-spinner></app-spinner>
+        </div>
+        <hr>
+      </div>
+      <br><hr>
+      <div class="button">
+        <button [disabled]="!currentImage" (click)="uploadImage()" class="btn btn-danger">ارفع الصورة</button>
+      </div>
+
+    </div>

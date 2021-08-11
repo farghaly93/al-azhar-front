@@ -26,6 +26,7 @@ export class GlobalServices {
 
   fetchInfo() {
     this.http.get<{res: {info: Info}} | any>(url + '/fetchInfo').subscribe((res: {info: Info}) => {
+      console.log(res.info)
       this.info = res.info;
       this.infoReady.next(this.info);
     });
@@ -48,5 +49,17 @@ export class GlobalServices {
 
   deleteMessage(id: number) {
     return this.http.get(url + '/deleteMessage/' + id);
+  }
+
+  uploadAlbumImage(image: any) {
+    return this.http.post("http://localhost:8080/uploadAlbumImage", {image});
+  }
+
+  getImages() {
+    return this.http.get("http://localhost:8080/getAlbumImages");
+  }
+
+  removeAlbumImage(id: string) {
+    return this.http.get("http://localhost:8080/removeAlbumImage/" + id);
   }
 }

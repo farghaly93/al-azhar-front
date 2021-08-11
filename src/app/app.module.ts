@@ -40,6 +40,8 @@ import { AddLocationComponent } from './views/admin/add-location/add-location.co
 import { LocationsComponent } from './shared/locations/locations.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PadgeComponent } from './components/padge/padge.component';
+import { AlbumComponent } from './views/admin/album/album.component';
+import { SafePipe } from './shared/safe.pipe';
 
 @NgModule({
   declarations: [
@@ -74,6 +76,8 @@ import { PadgeComponent } from './components/padge/padge.component';
     LocationsComponent,
     FooterComponent,
     PadgeComponent,
+    AlbumComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,

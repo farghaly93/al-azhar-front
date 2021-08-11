@@ -19,7 +19,7 @@
   }
 }
 
-.filters {
+.filters_section {
   // padding-top: 30px;
   background:rgba(229, 230, 231, 0.658);
   font-family: "Cairo";
@@ -93,18 +93,21 @@
     }
   }
 
-  .filters {
+  .filters_section {
     z-index: 1000;
     padding-top: 30%;
     position: fixed;
-    overflow-y: auto;
-    overflow-x: auto;
-    top: 20%;
     top: 0;
+    left: 0;
     width: 100%;
-    height: 100vh;
+    // height: 120vh;
     background: #fff;
     transform: translateY(-100%);
+
+    .filters {
+      overflow: auto;
+      height: 100vh;
+    }
   }
 }
 

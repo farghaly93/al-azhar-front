@@ -3,56 +3,60 @@
     <h4 class="text-muted  text-center">أضف خبر جديد</h4>
     <hr>
     <div [ngClass]="[message !=''?'show': '']" class="message container p-2">{{message}}</div>
-    <form #f="ngForm" (submit)="submit(f)">
-      <div class="row g-2" dir="rtl">
-        <div class="col-md-6">
-          <div class="form-group">
-            <label for="" class="form-label">عنواون الخبر</label>
-            <input type="text" class="form-control" name="title" [(ngModel)]="title" required >
-          </div>
-        </div>
-        <div class="col-md-12">
-          <div class="form-group">
-            <label for="" class="form-label">الخبر</label>
-            <textarea class="form-control" name="body" [(ngModel)]="body" required></textarea>
-          </div>
-        </div>
-        <div class="col-md-6">
-          <div class="form-group row">
-            <div class="pick-img col-md-6">
-              <label for="" class="form-label">الصورة المرفقة</label>
-              <div class="input-group" dir="rtl">
-                <!-- <span class="input-group-text">upload</span> -->
-                <input (change)="pickImage($event)" type="file" class="form-control input-group-file" required>
-              </div>
-            </div>
-
-            <div class="col-md-6" dir="rtl">
-              <label for="" class="form-label">أو ضع رابط صورة</label>
-              <input (change)="copyImage($event)" type="text" class="form-control">
-            </div>
-          </div>
-          <br>
-          <div style="" class="imgPrev">
-            <img style="width:100%;height:100%;" [src]="image" class="img-fluid" alt="preview">
-          </div>
-        </div>
-      </div>
+    <div dir="rtl">
+      <div class="form-group">
+        <label for="" class="form-label">عنواون الخبر</label>
+        <input type="text" class="form-control" [(ngModel)]="title" required >
+    </div>
+    <div class="form-group">
+      <label for="" class="form-label">الخبر</label>
+      <textarea class="form-control" [(ngModel)]="body" required></textarea>
+    </div>
 
       <hr>
-      <div class="progress">
-        <div *ngIf="progress>0 && progress !==100" class="progress-bar progress-bar-striped progress-bar-animated" [style]="'width:'+progress+'%'" role="progressbar"></div>
-      </div>
       <br>
+
+      <div class="pick_img ">
+        <div class="row">
+          <div class="pick">
+            <label for="" class="form-label">الصورة المرفقة</label>
+            <div class="input-group" dir="rtl">
+              <!-- <span class="input-group-text">upload</span> -->
+              <input disabled (change)="pickImage($event)" type="file" class="form-control input-group-file" required>
+            </div>
+          </div>
+          <br><br>
+          <div class="links" dir="rtl">
+            <label for="" class="form-label">أو ضع رابط صورة</label>
+            <input *ngFor="let img of images, let i=index" (change)="copyImage($event, i)" [(ngModel)]="images[i]" [placeholder]="(i+1)+' الصورة رقم'" type="text" class="form-control">
+            <i (click)="addMoreImage()" class="fa fa-plus add-more"></i>
+          </div>
+        </div>
+        <br>
+        <div class="img_preview row g-4">
+          <div *ngFor="let img of images, let i=index" class="col-md-4">
+            <img [src]="img" class="img img-fluid" alt="preview">
+          </div>
+        </div>
+      </div>
+      <div class="video">
+        <div class="form-group">
+          <label for="video">رابط الفيديو</label>
+          <input type="text" placeholder="رابط فيديو اليوتيوب" [(ngModel)]="video" class="form-control">
+        </div>
+        <br>
+        <iframe *ngIf="video !==''" width="100%" height="315" [src]="video | safe" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+      </div>
+      <hr><br><hr>
       <div class="row justify-content-end">
         <div *ngIf="loading" class="container text-center p-5">
           <app-spinner></app-spinner>
         </div>
-        <div class="col-md-12 col-lg-4">
-          <button [disabled]="!f.valid" type="submit" class="btn btn-success w-100">انشر الخبر</button>
+        <div class="col-lg-4">
+          <button (click)="submit()" [disabled]="!isValid()" type="submit" class="btn btn-success w-100">انشر الخبر</button>
         </div>
       </div>
-    </form>
+    </div>
 
   </div>
 </div>

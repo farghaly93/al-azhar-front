@@ -1,6 +1,53 @@
 * {
   font-family: "Cairo";
 }
+.home_container {
+  position: relative;
+  margin: 0;
+  padding: 0;
+}
+.background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url("../../../assets/img/photo1.jpg")
+}
+
+.opened-image {
+  transition: all .5s ease-in-out;
+  // transform: scale(0, 0);
+  width: 0;
+  height: 0;
+  background: rgba(97, 95, 95, 0.892);
+  transition: all .2s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  &.opened {
+    z-index: 3000;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    // transform: scale(100vw, 100vh);
+  }
+
+  i {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 3rem;
+    color: #fff;
+  }
+
+  img {
+    width: 90vw;
+    height: 90vh;
+  }
+}
 
 .overlay-image {
   position: fixed;
@@ -24,6 +71,8 @@
 header {
   h1 {
     font-size: 3rem;
+    border-bottom: 3px solid rgb(255, 255, 255);
+    padding: 5px 0;
     @media(max-width: 540px) {
       font-size: 1.4rem;
     }
@@ -43,19 +92,28 @@ header {
       height:auto;
     }
   }
+
+  .intro_images {
+    .img1, .img2 {
+      img {
+        width: 100%;
+        height: 400px
+      }
+    }
+  }
 }
 
-.content {
+.home_content {
+  margin: 0;
   position: absolute;
   top: 7%;
   left: 0;
-  width: 100vw;
+  // width: 99vw;
   height: 100vh;
 }
 
 .gradient {
-  background: rgb(2,0,36);
-  background: linear-gradient(108deg, rgb(79, 149, 196) 0%, rgb(40, 146, 141) 35%, rgb(61, 94, 100) 100%);
+  background: linear-gradient(108deg, rgba(79, 149, 196, 0.408) 0%, rgba(40, 146, 141, 0.476) 35%, rgba(61, 94, 100, 0.456) 100%);
 }
 
 .page-header {
@@ -73,8 +131,11 @@ header {
 }
 
 .features {
+  padding: 0 2rem;
+  background: rgba(128, 126, 126, 0.667);
   h2 {
     text-align: right;
+    font-size: 2.3rem;
     @media(max-width: 500px) {
       font-size: 1.6rem;
       margin-top: 20px;
@@ -82,37 +143,44 @@ header {
   }
   p {
     text-align: right;
-    @media(max-width: 500px) {
+  }
+  @media(max-width: 500px) {
+    padding: 0;
+    p {
       font-size: .8rem;
     }
   }
   .list {
-    display: flex;
-    flex-direction: column;
-    padding: 2rem;
-    @media(max-width: 700px) {
-      padding: .1rem;
-    }
     div {
-      padding-left: 2rem;
+      position: relative;
+      padding: 0;
       line-height: 1.5rem;
-      font-weight: 700;
-      margin: 1rem;
+      margin: 2rem .1rem;
       text-align: right;
       color: rgba(255, 255, 255, 0.836);
-      font-weight: 600;
+      font-weight: 700;
       font-size: 1.7rem;
-      &::after {
-        content: "";
-        width: 50px;
-        height: 50px;
-        background: url("../../../assets/img/coding_.svg") center center;
-        text-align:justify;
-        font-size: 1.2rem;
-        font-weight: 700;
+      img {
+        width: 40px;
+        height: 40px;
+        position: absolute;
+        top: 0;
+        right: 0;
+      }
+      span {
+        margin-right: 3rem;
+        color: #fff;
+        text-shadow: 2px 2px 2px 2px #000;
       }
       @media(max-width: 700px) {
         font-size: 1rem;
+        img {
+          width: 25px;
+          height: 25px;
+        }
+        span {
+          margin-right: 2rem;
+        }
       }
     }
   }
@@ -133,7 +201,10 @@ header {
 }
 
 .photo {
-  height: 450px;
+  height: 370px;
+  box-shadow: 2px 2px 12px 2px rgb(161, 159, 159);
+  padding: 12px;
+  // margin: 12px;
   @media(max-width: 370px) {
     height: 330px;
   }

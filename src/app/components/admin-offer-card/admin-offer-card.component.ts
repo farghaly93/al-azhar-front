@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { OfferInterface } from 'src/app/views/main-page/offers/offer.model';
+import { OfferInterface } from 'src/app/shared/offer.model';
 
 @Component({
   selector: 'app-admin-offer-card',

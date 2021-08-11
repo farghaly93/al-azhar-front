@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-import { OfferInterface } from 'src/app/views/main-page/offers/offer.model';
+import { ActivatedRoute, Params, Router } from '@angular/router';
+import { OfferInterface } from 'src/app/shared/offer.model';
 import { OffersServices } from 'src/app/shared/offers.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { OffersServices } from 'src/app/shared/offers.service';
   styleUrls: ['./offers.component.scss']
 })
 export class OffersSharedComponent implements OnInit {
-  constructor(private offersServices: OffersServices, private router: Router) { }
+  constructor(private offersServices: OffersServices, private router: Router, private route: ActivatedRoute) { }
 
   @Input() side!: string;
   offers: OfferInterface[] = [];
@@ -17,12 +17,13 @@ export class OffersSharedComponent implements OnInit {
   types: {value: string, count: number}[] = [];
   sites: {value: string, count: number}[] = [];
   skip = 0;
-  limit = 1;
+  limit = 20;
   numberOfPages = 0;
   currentPageNumber = 1;
   nextAllowed = false;
   previousAllowed = true;
   loading = false;
+  type = "published";
 
   filters: {
     activity: string[],
@@ -44,12 +45,15 @@ export class OffersSharedComponent implements OnInit {
 
   ngOnInit(): void {
     this.loading = true;
-    this.filterResults();
-    this.getFilters();
+    this.route.params.subscribe((params: Params) => {
+      this.type = params['type'];
+      this.filterResults();
+      this.getFilters();
+    });
   }
 
   getFilters() {
-    this.offersServices.fetchFilters().subscribe((filters) => {
+    this.offersServices.fetchFilters(this.type).subscribe((filters) => {
       this.activities = filters.activity;
       this.types = filters.type;
       this.sites = filters.site;
@@ -85,9 +89,9 @@ export class OffersSharedComponent implements OnInit {
   }
 
   filterResults() {
-    console.log(this.filters);
-    this.offersServices.filterOffers(this.filters, this.skip, this.limit).subscribe((res) => {
+    this.offersServices.filterOffers(this.filters, this.skip, this.limit, this.type).subscribe((res) => {
       this.offers = res.offers;
+      console.log(res.searchCount);
       this.numberOfPages = Math.ceil(res.numberOfAllItems/this.limit);
       this.currentPageNumber = (this.skip/this.limit) + 1;
       if(this.currentPageNumber >= this.numberOfPages) this.nextAllowed = false; else this.nextAllowed = true

@@ -10,7 +10,7 @@ const url = environment.url;
 @Injectable({providedIn: 'root'})
 
 export class AuthServices {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router,) {}
 
   ErrorOccured = new Subject<string>();
   expTime: string | null = "0";

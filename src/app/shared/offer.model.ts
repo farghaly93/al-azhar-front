@@ -21,9 +21,12 @@ export interface OfferInterface {
     area: number,
     price: number,
     site: string,
-    negotiable: boolean,
+    negotiable: Number,
     desc: string,
     updated_at: string,
     lat: number,
-    lng: number
+    lng: number,
+    name: string,
+    phone: string,
+    confirmed: Number
 }

@@ -2,7 +2,7 @@ import { Component, Input, OnInit, Sanitizer } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
 
 import { Router } from '@angular/router';
-import { News } from 'src/app/views/news.intrface';
+import { News } from 'src/app/shared/news.intrface';
 
 @Component({
   selector: 'app-news-post',
@@ -23,7 +23,7 @@ export class NewsPostComponent implements OnInit {
   }
 
   photoURL() {
-    return this.sanitizer.bypassSecurityTrustUrl(this.post.image);
+    return this.sanitizer.bypassSecurityTrustUrl(this.post.image[0]);
   }
 
 }

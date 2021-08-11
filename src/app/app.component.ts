@@ -15,8 +15,6 @@ export class AppComponent implements OnInit{
   times = 0;
   ngOnInit() {
     this.globalServices.fetchInfo();
-
-
   }
 
 }

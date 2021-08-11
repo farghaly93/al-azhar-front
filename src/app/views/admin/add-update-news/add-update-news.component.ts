@@ -23,6 +23,8 @@ export class AddUpdateNewsComponent implements OnInit {
     image: any = 'https://www.av.se/Static/images/placeholder.png';
     progress = 0.0;
     loading = false;
+    images: string[] = [];
+    video = "";
   // };
   // offerData = {};
 
@@ -32,18 +34,20 @@ export class AddUpdateNewsComponent implements OnInit {
       const data = this.route.snapshot.queryParams;
       this.title = data.title;
       this.body = data.body;
+      this.video = data.video;
+      console.log(this.video)
       this.id = data.id;
-      // if(!data.image.includes("D:")) {
-        this.image = data.image;
-      // }
+      this.images = data.image;
+
     } else {
       this.update =  false;
     }
   }
 
-  submit(f: NgForm) {
+  submit() {
     this.loading = true;
-    let news: any = {...f.value, image: this.image};
+    const images = JSON.stringify(this.images);
+    let news: any = {title: this.title, body: this.body, image: images, video: this.video};
     if(this.update) news['id'] = +this.id;
       this.newsServices.addNewNews(news, this.update).subscribe((res) => {
         console.log(res);
@@ -63,7 +67,6 @@ export class AddUpdateNewsComponent implements OnInit {
 
   pickImage(e: any) {
     this.imageFile = e.target.files[0];
-    console.log(this.imageFile);
     const fileReader = new FileReader();
     fileReader.readAsDataURL(this.imageFile);
 
@@ -72,8 +75,20 @@ export class AddUpdateNewsComponent implements OnInit {
     };
   }
 
-  copyImage(e: any) {
-    this.image = e.target.value;
+  addMoreImage() {
+    this.images.push("");
+  }
+
+  copyImage(e: any, i: number) {
+    this.images[i] = e.target.value;
+  }
+
+  isValid() {
+    if(this.title == "" || this.body =="" || this.images.length === 0 ||  this.images.findIndex(img=>!img.includes("http")) > -1) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
 }

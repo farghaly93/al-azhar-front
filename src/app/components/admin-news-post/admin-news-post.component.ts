@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
-import { News } from 'src/app/views/news.intrface';
+import { News } from 'src/app/shared/news.intrface';
 
 @Component({
   selector: 'app-admin-news-post',

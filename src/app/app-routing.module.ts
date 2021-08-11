@@ -18,27 +18,30 @@ import { WishlistComponent } from './views/wishlist/wishlist.component';
 import { MessagesComponent } from './views/admin/messages/messages.component';
 import { AddLocationComponent } from './views/admin/add-location/add-location.component';
 import { LocationsComponent } from './shared/locations/locations.component';
+import { AlbumComponent } from './views/admin/album/album.component';
+import { CanActivateGuard } from './shared/canActivate';
+import { CanDeactivateGuard } from './shared/canDeactivate';
 
 const routes: Routes = [
   {path: "", component: HomeComponent, pathMatch: 'full'},
   {path: "auth", component: AuthComponent},
   {path: "main-page", component: MainPageComponent, children: [
     {path: '', component: MenuPageComponent},
-    {path: "offers", component: OffersComponent},
+    {path: "offers/:type", component: OffersComponent},
     {path: "news", component: NewsComponent},
     {path: "offers/offer-details/:id", component: OfferDetailsComponent},
     {path: "wishlist", component: WishlistComponent},
     {path: "locations", component: LocationsComponent},
     {path: "newsDetails/:id", component: NewsDetailsComponent},
-
+    {path: 'add-offer', component: AddUpdateOfferComponent},
   ]},
 
 
 
-  {path: "admin-panel", component: AdminMainPageComponent, children: [
+  {path: "admin-panel", component: AdminMainPageComponent, canActivate: [CanActivateGuard], children: [
     {path: 'add-offer', component: AddUpdateOfferComponent},
     {path: 'update-offer/:id', component: AddUpdateOfferComponent},
-    {path: 'offers', component: AdminOffersComponent},
+    {path: 'offers/:type', component: AdminOffersComponent},
     {path: 'add-news', component: AddUpdateNewsComponent},
     {path: 'update-news/:id', component: AddUpdateNewsComponent},
     {path: 'news', component: AdminNewsComponent},
@@ -47,6 +50,7 @@ const routes: Routes = [
     {path: 'addLocations', component: AddLocationComponent},
     {path: 'addLocations/:id', component: AddLocationComponent},
     {path: 'locations', component: LocationsComponent},
+    {path: 'album', component: AlbumComponent},
   ]},
 
 ];
