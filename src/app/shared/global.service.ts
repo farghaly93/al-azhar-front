@@ -57,10 +57,10 @@ export class GlobalServices {
   }
 
   getImages() {
-    return this.http.get("nodeUrl/getAlbumImages");
+    return this.http.get("/getAlbumImages");
   }
 
   removeAlbumImage(id: string) {
-    return this.http.get("nodeUrl/removeAlbumImage/" + id);
+    return this.http.get("/removeAlbumImage/" + id);
   }
 }
