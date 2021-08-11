@@ -53,14 +53,14 @@ export class GlobalServices {
   }
 
   uploadAlbumImage(image: any) {
-    return this.http.post("nodeUrl/uploadAlbumImage", {image});
+    return this.http.post(nodeUrl+ "/uploadAlbumImage", {image});
   }
 
   getImages() {
-    return this.http.get("/getAlbumImages");
+    return this.http.get(nodeUrl+"/getAlbumImages");
   }
 
   removeAlbumImage(id: string) {
-    return this.http.get("/removeAlbumImage/" + id);
+    return this.http.get(nodeUrl+"/removeAlbumImage/" + id);
   }
 }
