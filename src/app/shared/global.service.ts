@@ -5,6 +5,7 @@ import { environment } from "src/environments/environment";
 import { Info } from "./info.interface";
 
 const url = environment.url;
+const nodeUrl = environment.nodeUrl;
 
 @Injectable({providedIn: "root"})
 
@@ -52,14 +53,14 @@ export class GlobalServices {
   }
 
   uploadAlbumImage(image: any) {
-    return this.http.post("http://localhost:8080/uploadAlbumImage", {image});
+    return this.http.post("nodeUrl/uploadAlbumImage", {image});
   }
 
   getImages() {
-    return this.http.get("http://localhost:8080/getAlbumImages");
+    return this.http.get("nodeUrl/getAlbumImages");
   }
 
   removeAlbumImage(id: string) {
-    return this.http.get("http://localhost:8080/removeAlbumImage/" + id);
+    return this.http.get("nodeUrl/removeAlbumImage/" + id);
   }
 }

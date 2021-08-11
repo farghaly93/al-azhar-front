@@ -5,6 +5,8 @@
 export const environment = {
   // url: 'http://127.0.0.1:8000/api',
   url:'https://al-azhar.herokuapp.com/api',
+  // nodeUrl: window.location.href,
+  nodeUrl: "https://al-azzhar.herokuapp.com",
   production: false
 };
 
