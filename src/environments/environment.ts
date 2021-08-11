@@ -4,7 +4,7 @@
 
 export const environment = {
   // url: 'http://127.0.0.1:8000/api',
-  url:'https://alazhar-back.herokuapp.com/',
+  url:'https://alazhar-back.herokuapp.com',
   nodeUrl: window.location.href,
   // nodeUrl: "https://al-azzhar.herokuapp.com",
   // nodeUrl: "http://localhost:8080",
