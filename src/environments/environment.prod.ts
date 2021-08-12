@@ -1,6 +1,5 @@
 export const environment = {
   url:'https://al-azhar.herokuapp.com/api',
-  // nodeUrl: window.location.href,
-  nodeUrl: "https://al-azzhar.herokuapp.com",
+  nodeUrl: window.location.origin,
   production: true
 };
